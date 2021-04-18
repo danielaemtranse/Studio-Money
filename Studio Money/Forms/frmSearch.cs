@@ -2,7 +2,6 @@
 using System.Data;
 using System.Windows.Forms;
 using Studio_Money.Classes;
-using StudioByte.StudioMoney.Global.BE;
 using StudioByte.StudioMoney.Main.BE;
 using StudioByte.Database.Business;
 

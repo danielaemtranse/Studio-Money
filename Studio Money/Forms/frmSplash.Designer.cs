@@ -41,7 +41,7 @@ namespace Studio_Money.Forms
             // 
             // pnlMaster
             // 
-            this.pnlMaster.BackgroundImage = global::Studio_Money.Properties.Resources.fundo12;
+            this.pnlMaster.BackgroundImage = global::Studio_Money.Properties.Resources.fundo6;
             this.pnlMaster.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMaster.Controls.Add(this.grbMaster);
             this.pnlMaster.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,7 +86,7 @@ namespace Studio_Money.Forms
             this.lblLicense.Size = new System.Drawing.Size(398, 23);
             this.lblLicense.TabIndex = 15;
             this.lblLicense.Text = "Este programa é um software livre. Para mais informações acesse o menu Ajuda e So" +
-                "bre.";
+    "bre.";
             // 
             // frmSplash
             // 

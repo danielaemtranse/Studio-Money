@@ -225,7 +225,7 @@ namespace Studio_Money.Classes
 
         }
 
-        public String fnGetDatabasePath()
+        public String fnGetDatabase(String sKey)
         {
 
             // Instantiate BE class
@@ -237,7 +237,7 @@ namespace Studio_Money.Classes
             // Fill Business class properties
             objBusiness.ObjConfigurationBE = objBE;
 
-            return objBusiness.fnGetDatabasePath();
+            return objBusiness.fnGetDatabase(sKey);
             
         }
 

@@ -1,10 +1,3 @@
-SET SQL DIALECT 3
-
-CREATE DATABASE 'localhost:C:\Documents and Settings\Daniel\Meus documentos\Visual Studio 2005\Projects\Studio Money\Studio Money\Studio Money\Database\StudioMoney.smy'
-USER 'SYSDBA' PASSWORD '**********'
-PAGE_SIZE 4096
-DEFAULT CHARACTER SET NONE;
-
 
 /* Tables */
 CREATE TABLE "sisContinent" (

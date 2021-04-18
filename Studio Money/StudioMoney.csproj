@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A0DDFBA-08AA-423C-B8A0-1D860177722F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Studio_Money</RootNamespace>
+    <AssemblyName>Studio Money</AssemblyName>
+    <ApplicationIcon>money.ico</ApplicationIcon>
+    <StartupObject>Studio_Money.Classes.clsStudioMoney</StartupObject>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Firebird, Version=8.0.1.0, Culture=neutral, PublicKeyToken=42d22d092898e5f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Firebird.8.0.1\lib\net48\EntityFramework.Firebird.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=8.0.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.8.0.1\lib\netstandard2.0\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTree.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTabbedMdi.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinListView.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinListBar.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinExplorerBar.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinChart.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.Misc.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.AppStylistSupport.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Shared.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BE\ConfigurationBE.cs" />
+    <Compile Include="BE\StudioMoneyBE.cs" />
+    <Compile Include="Business\Configuration.cs" />
+    <Compile Include="Business\Database.cs" />
+    <Compile Include="Business\StudioMoney.cs" />
+    <Compile Include="Classes\clsListViewColumnSorter.cs" />
+    <Compile Include="Classes\clsSounds.cs" />
+    <Compile Include="Classes\clsStudioMoney.cs" />
+    <Compile Include="Classes\clsValidate.cs" />
+    <Compile Include="Data\Configuration\ConfigurationSQL.cs" />
+    <Compile Include="Data\Configuration\IConfiguration.cs" />
+    <Compile Include="Data\IStudioMoney.cs" />
+    <Compile Include="Data\Configuration\SConfiguration.cs" />
+    <Compile Include="Data\StudioMoneySQL.cs" />
+    <Compile Include="Data\SStudioMoney.cs" />
+    <Compile Include="Forms\frmAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccess.Designer.cs">
+      <DependentUpon>frmAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccountType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccountType.Designer.cs">
+      <DependentUpon>frmAccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAdditionalUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAdditionalUser.Designer.cs">
+      <DependentUpon>frmAdditionalUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBank.Designer.cs">
+      <DependentUpon>frmBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCard.Designer.cs">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCardEnterprise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCardEnterprise.Designer.cs">
+      <DependentUpon>frmCardEnterprise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCurrency.Designer.cs">
+      <DependentUpon>frmCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInterval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInterval.Designer.cs">
+      <DependentUpon>frmInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPaymentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPaymentType.Designer.cs">
+      <DependentUpon>frmPaymentType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVendor.Designer.cs">
+      <DependentUpon>frmVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLanguage.Designer.cs">
+      <DependentUpon>frmLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogon.Designer.cs">
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSearch.designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmAccess.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccountType.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAdditionalUser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAdditionalUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBank.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCardEnterprise.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCardEnterprise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCategory.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCurrency.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInterval.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPaymentType.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPaymentType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVendor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHome.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLanguage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRegister.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogon.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSplash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\%241540.ico" />
+    <Content Include="Images\%241542.ico" />
+    <Content Include="Images\%241547.ico" />
+    <Content Include="Images\%241548.ico" />
+    <Content Include="Images\%241549.ico" />
+    <Content Include="Images\%241550.ico" />
+    <Content Include="Images\%241629.ico" />
+    <Content Include="Images\1%2520Back.ico" />
+    <Content Include="Images\1%2520Front.ico" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\additionaluser.png" />
+    <Content Include="Images\app22.png" />
+    <Content Include="Images\ar.gif" />
+    <Content Include="Images\Argentina.gif" />
+    <Content Include="Images\Australia.gif" />
+    <Content Include="Images\Austria.gif" />
+    <Content Include="Images\background.gif" />
+    <Content Include="Images\background01.jpg" />
+    <Content Include="Images\background02.gif" />
+    <Content Include="Images\background03.gif" />
+    <Content Include="Images\background04.gif" />
+    <Content Include="Images\Belgium.gif" />
+    <Content Include="Images\br.gif" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\calendar_.png" />
+    <Content Include="Images\cal_32.png" />
+    <Content Include="Images\card.png" />
+    <Content Include="Images\cardenterprise.png" />
+    <Content Include="Images\cardenterprise1.png" />
+    <Content Include="Images\de.gif" />
+    <Content Include="Images\del.png" />
+    <Content Include="Images\Denmark.gif" />
+    <Content Include="Images\Diskete.png" />
+    <Content Include="Images\edit22.png" />
+    <Content Include="Images\en.gif" />
+    <Content Include="Images\es.gif" />
+    <Content Include="Images\Estonia.gif" />
+    <Content Include="Images\file22.png" />
+    <Content Include="Images\find.gif" />
+    <Content Include="Images\find.jpg" />
+    <Content Include="Images\find22.png" />
+    <Content Include="Images\find32.png" />
+    <Content Include="Images\Finland.gif" />
+    <Content Include="Images\fr.gif" />
+    <Content Include="Images\Germany.gif" />
+    <Content Include="Images\Greece.gif" />
+    <Content Include="Images\group_32.png" />
+    <Content Include="Images\Home.png" />
+    <Content Include="Images\home_32.png" />
+    <Content Include="Images\Iceland.gif" />
+    <Content Include="Images\ico1237.ico" />
+    <Content Include="Images\ico1355.ico" />
+    <Content Include="Images\ico1411.ico" />
+    <Content Include="Images\ico1429.ico" />
+    <Content Include="Images\ico3725.ico" />
+    <Content Include="Images\ico3780.ico" />
+    <Content Include="Images\ico3826.ico" />
+    <Content Include="Images\ico4112.ico" />
+    <Content Include="Images\ico440.ico" />
+    <Content Include="Images\ico4525.ico" />
+    <Content Include="Images\ico4557.ico" />
+    <Content Include="Images\ico6744.ico" />
+    <Content Include="Images\ico7919.ico" />
+    <Content Include="Images\ico908.ico" />
+    <Content Include="Images\ico959.ico" />
+    <Content Include="Images\icoCCardOptions.gif" />
+    <Content Include="Images\Israel.gif" />
+    <Content Include="Images\Italy.gif" />
+    <Content Include="Images\iw.gif" />
+    <Content Include="Images\Japan.gif" />
+    <Content Include="Images\large icons.png" />
+    <Content Include="Images\map.png" />
+    <Content Include="Images\Misc2114.ico" />
+    <Content Include="Images\Misc2116.ico" />
+    <Content Include="Images\Misc2118.ico" />
+    <Content Include="Images\Misc2119.ico" />
+    <Content Include="Images\Misc2120.ico" />
+    <Content Include="Images\Money%2520Bag.ico" />
+    <Content Include="Images\Money%2520Puzzle%2520Piece.ico" />
+    <Content Include="Images\Money%282%29.ico" />
+    <Content Include="Images\moneytype.gif" />
+    <Content Include="Images\moneytype_.gif" />
+    <Content Include="Images\moneytype_1.gif" />
+    <Content Include="Images\Money_.ico" />
+    <Content Include="Images\money_type.png" />
+    <Content Include="Images\no.gif" />
+    <Content Include="Images\object.png" />
+    <Content Include="Images\opts_32.png" />
+    <Content Include="Images\pag-first.gif" />
+    <Content Include="Images\pag-last.gif" />
+    <Content Include="Images\pag-next.gif" />
+    <Content Include="Images\pag-previous.gif" />
+    <Content Include="Images\paymenttype.png" />
+    <Content Include="Images\Portugal.gif" />
+    <Content Include="Images\redo.png" />
+    <Content Include="Images\redo_.png" />
+    <Content Include="Images\ru.gif" />
+    <Content Include="Images\save_16.png" />
+    <Content Include="Images\save_32.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\search_24.png" />
+    <Content Include="Images\search_32.png" />
+    <Content Include="Images\sl.gif" />
+    <Content Include="Images\SlovakRepublic.gif" />
+    <Content Include="Images\Slovenia.gif" />
+    <Content Include="Images\smicn_32.png" />
+    <Content Include="Images\Spain.gif" />
+    <Content Include="Images\sr.gif" />
+    <Content Include="Images\srch_32.png" />
+    <Content Include="Images\stats32.png" />
+    <Content Include="Images\Sweden.gif" />
+    <Content Include="Images\tipoconta.ico" />
+    <Content Include="Images\trash.gif" />
+    <Content Include="Images\trash_16.png" />
+    <Content Include="Images\trash_32.png" />
+    <Content Include="Images\undo_32.png" />
+    <Content Include="Images\UnitedKingdom.gif" />
+    <Content Include="Images\User %28Alt 2%29.png" />
+    <Content Include="Images\user_32.png" />
+    <Content Include="Images\vendor.png" />
+    <Content Include="Images\vendor1.png" />
+    <Content Include="Images\vendor2.png" />
+    <Content Include="Images\vendor_.png" />
+    <Content Include="Images\windowb22.png" />
+    <Content Include="Images\zh.gif" />
+    <Content Include="Images\zoomo_32.png" />
+    <Content Include="Images\_conta.ico" />
+    <Content Include="Images\_money.png" />
+    <Content Include="Images\_money_type.png" />
+    <Content Include="Images\_money_type_.gif" />
+    <Content Include="Images\_money_type_.png" />
+    <Content Include="Images\_money_type_1.png" />
+    <Content Include="Sounds\Window_Open.wav" />
+    <Content Include="Sounds\Window_Shade_Down.wav" />
+    <Content Include="Sounds\Window_Shade_Up.wav" />
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Configuration\StudioMoney.ini" />
+    <None Include="Database\StudioMoney.smy" />
+    <None Include="Images\close22.png" />
+    <None Include="Images\database.png" />
+    <None Include="Images\259.png" />
+    <None Include="Images\deleteuser22.png" />
+    <None Include="Images\adduser22.png" />
+    <None Include="Images\accept22.png" />
+    <Content Include="Images\241.png" />
+    <Content Include="Images\8database24.png" />
+    <Content Include="Images\adduser.ico" />
+    <None Include="Images\add_16.png" />
+    <None Include="Images\bank.gif" />
+    <Content Include="Images\Brazil.gif" />
+    <None Include="Images\conta.ico" />
+    <Content Include="Images\degrade_fd.jpg" />
+    <None Include="Images\delete_16.png" />
+    <Content Include="Images\dinheiro.gif" />
+    <Content Include="Images\dinheiro.png" />
+    <None Include="Images\DISK02.ICO" />
+    <None Include="Images\DISK04.ICO" />
+    <None Include="Images\Document.png" />
+    <None Include="Images\documents_16.png" />
+    <Content Include="Images\Dollar.png" />
+    <None Include="Images\Dollar_.png" />
+    <Content Include="Images\entrada.gif" />
+    <Content Include="Images\entrada.png" />
+    <None Include="Images\mail22.png" />
+    <None Include="Images\titulo.gif" />
+    <None Include="Images\money22.png" />
+    <None Include="Images\next22.png" />
+    <None Include="Images\web.png" />
+    <None Include="Images\users.jpg" />
+    <None Include="Images\users_.jpg" />
+    <None Include="Images\users_.gif" />
+    <None Include="Images\users01.jpg" />
+    <None Include="Images\users01.gif" />
+    <None Include="Images\key.ico" />
+    <None Include="Images\users.png" />
+    <None Include="Images\exit.jpg" />
+    <None Include="Images\exit3.jpg" />
+    <None Include="Images\exit3.gif" />
+    <None Include="Images\exit4.gif" />
+    <Content Include="Images\exit1.jpg" />
+    <None Include="Images\file_cancel.png" />
+    <Content Include="Images\finance_16.png" />
+    <Content Include="Images\finance_24.png" />
+    <Content Include="Images\finance_32.png" />
+    <None Include="Images\ico_bank.gif" />
+    <None Include="Images\ico1862.ico" />
+    <None Include="Images\ico235.ico" />
+    <None Include="Images\ico1419.ico" />
+    <None Include="Images\ico1523.ico" />
+    <None Include="Images\ico5146.ico" />
+    <None Include="Images\ico300.ico" />
+    <None Include="Images\Lixeira06.ico" />
+    <None Include="Images\map_.png" />
+    <None Include="Images\ico4014.ico" />
+    <Content Include="Images\money.ico" />
+    <Content Include="Images\money.png" />
+    <Content Include="Images\money1.png" />
+    <Content Include="Images\money2.png" />
+    <None Include="Images\notes_16.png" />
+    <None Include="Images\Safe.ico" />
+    <None Include="Images\saveas22.png" />
+    <None Include="Images\trashb22.png" />
+    <None Include="Images\trash1.gif" />
+    <Content Include="Images\USA.gif" />
+    <Content Include="Images\users02.jpg" />
+    <Content Include="Images\web.ico" />
+    <Content Include="money.ico" />
+    <Content Include="Sounds\Battery_Charging.wav" />
+    <Content Include="Sounds\Desktop1.wav" />
+    <Content Include="Sounds\Desktop10.wav" />
+    <Content Include="Sounds\Desktop2.wav" />
+    <Content Include="Sounds\Desktop3.wav" />
+    <Content Include="Sounds\Desktop4.wav" />
+    <Content Include="Sounds\Desktop5.wav" />
+    <Content Include="Sounds\Desktop6.wav" />
+    <Content Include="Sounds\Desktop7.wav" />
+    <Content Include="Sounds\Desktop8.wav" />
+    <Content Include="Sounds\Desktop9.wav" />
+    <Content Include="Sounds\Device_Connected.wav" />
+    <Content Include="Sounds\Device_Disconnected.wav" />
+    <Content Include="Sounds\Error.wav" />
+    <Content Include="Sounds\Error2.wav" />
+    <Content Include="Sounds\Event.wav" />
+    <Content Include="Sounds\Event2.wav" />
+    <Content Include="Sounds\Event3.wav" />
+    <Content Include="Sounds\Logout.wav" />
+    <Content Include="Sounds\LowBatteryAlarm.wav" />
+    <Content Include="Sounds\pop.wav" />
+    <Content Include="Sounds\Received.wav" />
+    <Content Include="Sounds\Sent.wav" />
+    <Content Include="Sounds\Startup.wav" />
+    <Content Include="Sounds\Success.wav" />
+    <Content Include="Sounds\User_is_Online.wav" />
+    <Content Include="Sounds\Window_Close.wav" />
+    <Content Include="Sounds\Window_Iconify.wav" />
+    <None Include="Images\key22.png" />
+    <None Include="Images\user22.png" />
+    <None Include="Images\gotoapp22.png" />
+    <None Include="Languages\pt-br.ini" />
+    <None Include="StudioMoney.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Firebird.Embedded.3.0.0.32485\build\Firebird.Embedded.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Firebird.Embedded.3.0.0.32485\build\Firebird.Embedded.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Firebird.Embedded.3.0.0.32485\build\Firebird.Embedded.targets" Condition="Exists('..\packages\Firebird.Embedded.3.0.0.32485\build\Firebird.Embedded.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

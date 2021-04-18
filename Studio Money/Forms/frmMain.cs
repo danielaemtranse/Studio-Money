@@ -1,27 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
-using System.Threading;
 using Studio_Money.Classes;
 
 using Infragistics.Shared;
-using Infragistics.Win.UltraWinGrid;
-using Infragistics.Win.UltraWinTree;
 using Infragistics.Win.UltraWinToolbars;
 using Infragistics.Win.UltraWinEditors;
-
-using FirebirdSql.Data.FirebirdClient;
-
-using StudioByte.StudioMoney.Bank.BE;
-using StudioByte.StudioMoney.Bank.Data;
-using StudioByte.StudioMoney.Bank.Business;
-
-using StudioByte.StudioMoney.Global.BE;
 
 using StudioByte.Database.Business;
 
@@ -76,7 +62,7 @@ namespace Studio_Money.Forms
                 usbStatus.Refresh();
 
                 // Set database directory information to last panel in statusbar
-                usbStatus.Panels[2].Text = clsGeneral.fnGetDatabasePath();
+                usbStatus.Panels[2].Text = clsGeneral.fnGetDatabase("Path");
 
                 // Set grid information
                 //((UltraGridBase)(ugrGrid)).DisplayLayout.GroupByBox.Prompt = clsGeneral.fnGetControlCaption(this, "ugrGrid.Group");
@@ -267,7 +253,7 @@ namespace Studio_Money.Forms
 
                     case "CadastreBank":
 
-                        frmCadastreBank _frmCadastreBank = new frmCadastreBank();
+                        frmBank _frmCadastreBank = new frmBank();
                         _frmCadastreBank.MdiParent = this;
 
                         sOpenedMenuItem = "CadastreBank";
@@ -845,7 +831,7 @@ namespace Studio_Money.Forms
                     case "CadastreBank":
                         {
 
-                            frmCadastreBank _frmCadastreBank = (frmCadastreBank)this._form;
+                            frmBank _frmCadastreBank = (frmBank)this._form;
 
                             if (fnValidateEmpty(_frmCadastreBank.txtCode, _frmCadastreBank.txtDescription) == true)
                             {
@@ -1091,7 +1077,7 @@ namespace Studio_Money.Forms
 
                             if (lvwGrid.SelectedItems.Count > 0)
                             {
-                                frmCadastreBank _frmCadastreBank = (frmCadastreBank)this._form;
+                                frmBank _frmCadastreBank = (frmBank)this._form;
 
                                 _frmCadastreBank.txtCode.Text = lvwGrid.SelectedItems[0].Text;
                                 _frmCadastreBank.txtDescription.Text = lvwGrid.SelectedItems[0].SubItems[1].Text;
