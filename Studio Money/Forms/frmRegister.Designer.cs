@@ -147,7 +147,7 @@ namespace Studio_Money.Forms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.txtWelcomeSub);
             this.pnlHeader.Controls.Add(this.pcbHeader);
@@ -169,7 +169,7 @@ namespace Studio_Money.Forms
             // 
             // pcbHeader
             // 
-            this.pcbHeader.Image = global::Studio_Money.Properties.Resources.cadastro1;
+            this.pcbHeader.Image = global::Studio_Money.Properties.Resources.register;
             this.pcbHeader.Location = new System.Drawing.Point(12, 9);
             this.pcbHeader.Name = "pcbHeader";
             this.pcbHeader.Size = new System.Drawing.Size(49, 56);

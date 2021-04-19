@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Studio_Money.Classes;
 using StudioByte.StudioMoney.Main.BE;
 using StudioByte.Database.Business;
+using StudioByte.StudioMoney.Global.BE;
 
 namespace Studio_Money.Forms
 {

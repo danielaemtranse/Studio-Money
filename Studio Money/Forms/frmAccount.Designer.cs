@@ -30,15 +30,15 @@ namespace Studio_Money.Forms
         {
             this.SuspendLayout();
             // 
-            // frmCadastreAccount
+            // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(813, 450);
-            this.Name = "frmCadastreAccount";
+            this.Name = "frmAccount";
             this.ShowIcon = false;
-            this.Text = "Cadastre Account";
+            this.Text = "Account";
             this.ResumeLayout(false);
 
         }

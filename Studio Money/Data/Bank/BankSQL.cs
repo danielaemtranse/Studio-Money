@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -152,7 +152,7 @@ namespace StudioByte.StudioMoney.Bank.Data
             cm = new FbCommand();
 
             // Command attributes
-            cm.Connection = (FbConnection)objBankBE.oConnection; 
+            cm.Connection = (FbConnection)objBankBE.oConnection;
             cm.CommandType = CommandType.StoredProcedure;
             cm.CommandText = "spBank_DEL";
 

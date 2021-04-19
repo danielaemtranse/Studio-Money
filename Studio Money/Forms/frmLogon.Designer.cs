@@ -300,7 +300,7 @@ namespace Studio_Money.Forms
             // pnlLogon
             // 
             this.pnlLogon.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.pnlLogon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogon.Controls.Add(this.label3);
             this.pnlLogon.Controls.Add(this.lblLogonSub);
@@ -362,7 +362,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Studio_Money.Properties.Resources.entrada2;
+            this.pictureBox1.Image = global::Studio_Money.Properties.Resources.entrance;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(210, 62);

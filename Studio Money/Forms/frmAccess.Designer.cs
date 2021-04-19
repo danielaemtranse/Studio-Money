@@ -237,7 +237,7 @@ namespace Studio_Money.Forms
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.panel1.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.ultraLabel1);
             this.panel1.Controls.Add(this.lblWelcome);

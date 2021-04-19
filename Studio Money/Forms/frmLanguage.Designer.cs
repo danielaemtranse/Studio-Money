@@ -67,7 +67,7 @@ namespace Studio_Money.Forms
             // pnlLogon
             // 
             this.pnlLogon.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.pnlLogon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogon.Controls.Add(this.label1);
             this.pnlLogon.Controls.Add(this.lblHeaderSub);

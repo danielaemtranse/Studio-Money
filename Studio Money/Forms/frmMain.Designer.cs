@@ -233,7 +233,7 @@ namespace Studio_Money.Forms
             // 
             this.tvwTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tvwTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvwTreeView.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tvwTreeView.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tvwTreeView.FullRowSelect = true;
             this.tvwTreeView.HideSelection = false;
             this.tvwTreeView.ImageIndex = 0;
@@ -289,7 +289,7 @@ namespace Studio_Money.Forms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.lblCurrentHeader);
             this.pnlHeader.Controls.Add(this.lblCurrentHeaderSub);
@@ -356,6 +356,7 @@ namespace Studio_Money.Forms
             this.lvwGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwGrid.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvwGrid.FullRowSelect = true;
+            this.lvwGrid.HideSelection = false;
             this.lvwGrid.Location = new System.Drawing.Point(0, 0);
             this.lvwGrid.MultiSelect = false;
             this.lvwGrid.Name = "lvwGrid";

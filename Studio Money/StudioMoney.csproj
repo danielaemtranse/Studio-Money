@@ -104,21 +104,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE\BankBE.cs" />
     <Compile Include="BE\ConfigurationBE.cs" />
-    <Compile Include="BE\StudioMoneyBE.cs" />
+    <Compile Include="BE\GlobalBE.cs" />
+    <Compile Include="BE\MainBE.cs" />
+    <Compile Include="Business\Bank.cs" />
     <Compile Include="Business\Configuration.cs" />
     <Compile Include="Business\Database.cs" />
-    <Compile Include="Business\StudioMoney.cs" />
+    <Compile Include="Business\Global.cs" />
+    <Compile Include="Business\Main.cs" />
     <Compile Include="Classes\clsListViewColumnSorter.cs" />
     <Compile Include="Classes\clsSounds.cs" />
     <Compile Include="Classes\clsStudioMoney.cs" />
     <Compile Include="Classes\clsValidate.cs" />
+    <Compile Include="Data\Bank\BankSQL.cs" />
+    <Compile Include="Data\Bank\IBank.cs" />
+    <Compile Include="Data\Bank\SBank.cs" />
     <Compile Include="Data\Configuration\ConfigurationSQL.cs" />
     <Compile Include="Data\Configuration\IConfiguration.cs" />
-    <Compile Include="Data\IStudioMoney.cs" />
+    <Compile Include="Data\Global\GlobalSQL.cs" />
+    <Compile Include="Data\Global\IGlobal.cs" />
+    <Compile Include="Data\Global\SGlobal.cs" />
+    <Compile Include="Data\Main\IMain.cs" />
     <Compile Include="Data\Configuration\SConfiguration.cs" />
-    <Compile Include="Data\StudioMoneySQL.cs" />
-    <Compile Include="Data\SStudioMoney.cs" />
+    <Compile Include="Data\Main\MainSQL.cs" />
+    <Compile Include="Data\Main\SMain.cs" />
     <Compile Include="Forms\frmAccess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +327,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Global.csproj" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -351,6 +362,10 @@
     <Content Include="Images\Argentina.gif" />
     <Content Include="Images\Australia.gif" />
     <Content Include="Images\Austria.gif" />
+    <None Include="Images\backBlue.png" />
+    <Content Include="Images\backBlue01.jpg" />
+    <Content Include="Images\backBlue01.png" />
+    <Content Include="Images\backBlue02.png" />
     <Content Include="Images\background.gif" />
     <Content Include="Images\background01.jpg" />
     <Content Include="Images\background02.gif" />
@@ -370,6 +385,7 @@
     <Content Include="Images\Diskete.png" />
     <Content Include="Images\edit22.png" />
     <Content Include="Images\en.gif" />
+    <None Include="Images\entrance.png" />
     <Content Include="Images\es.gif" />
     <Content Include="Images\Estonia.gif" />
     <Content Include="Images\file22.png" />
@@ -431,6 +447,7 @@
     <Content Include="Images\Portugal.gif" />
     <Content Include="Images\redo.png" />
     <Content Include="Images\redo_.png" />
+    <None Include="Images\register.gif" />
     <Content Include="Images\ru.gif" />
     <Content Include="Images\save_16.png" />
     <Content Include="Images\save_32.png" />
@@ -471,7 +488,6 @@
     <Content Include="Sounds\Window_Shade_Down.wav" />
     <Content Include="Sounds\Window_Shade_Up.wav" />
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Configuration\StudioMoney.ini" />
     <None Include="Database\StudioMoney.smy" />
     <None Include="Images\close22.png" />
@@ -497,8 +513,6 @@
     <None Include="Images\documents_16.png" />
     <Content Include="Images\Dollar.png" />
     <None Include="Images\Dollar_.png" />
-    <Content Include="Images\entrada.gif" />
-    <Content Include="Images\entrada.png" />
     <None Include="Images\mail22.png" />
     <None Include="Images\titulo.gif" />
     <None Include="Images\money22.png" />
@@ -594,6 +608,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

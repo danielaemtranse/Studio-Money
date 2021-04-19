@@ -109,7 +109,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue1;
+            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.lblHeaderSub);
             this.pnlHeader.Controls.Add(this.lblHeader);

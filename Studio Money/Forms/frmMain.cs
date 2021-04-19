@@ -10,6 +10,9 @@ using Infragistics.Win.UltraWinToolbars;
 using Infragistics.Win.UltraWinEditors;
 
 using StudioByte.Database.Business;
+using StudioByte.StudioMoney.Bank.BE;
+using StudioByte.StudioMoney.Bank.Business;
+using StudioByte.StudioMoney.Global.BE;
 
 namespace Studio_Money.Forms
 {
