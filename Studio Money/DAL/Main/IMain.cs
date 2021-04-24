@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using StudioByte.StudioMoney.Main.BE;
+using StudioMoney.BE;
 
-namespace StudioByte.StudioMoney.Main.Data
+namespace StudioMoney.DAL.Main
 {
     interface IMain
     {

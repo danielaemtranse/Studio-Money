@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Studio_Money
+namespace StudioMoney
 {
     static class Program
     {
@@ -14,7 +14,7 @@ namespace Studio_Money
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Studio_Money.Forms.frmMain());
+            Application.Run(new StudioMoney.Forms.frmMain());
         }
     }
 }

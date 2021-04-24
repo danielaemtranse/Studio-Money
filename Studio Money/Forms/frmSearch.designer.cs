@@ -1,4 +1,4 @@
-﻿namespace Studio_Money.Forms
+﻿namespace StudioMoney.Forms
 {
     partial class frmSearch
     {
@@ -67,7 +67,7 @@
             // pnlButtons
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.Transparent;
-            this.pnlButtons.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlButtons.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlButtons.Controls.Add(this.ubtClose);
             this.pnlButtons.Controls.Add(this.ubtSearch);
@@ -109,7 +109,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlHeader.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.lblHeaderSub);
             this.pnlHeader.Controls.Add(this.lblHeader);
@@ -226,7 +226,7 @@
             // 
             // ubtRemove
             // 
-            appearance6.Image = global::Studio_Money.Properties.Resources.delete_16;
+            appearance6.Image = global::StudioMoney.Properties.Resources.delete_16;
             this.ubtRemove.Appearance = appearance6;
             this.ubtRemove.AutoSize = true;
             this.ubtRemove.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,7 +240,7 @@
             // 
             // ubtAdd
             // 
-            appearance4.Image = global::Studio_Money.Properties.Resources.add_16;
+            appearance4.Image = global::StudioMoney.Properties.Resources.add_16;
             this.ubtAdd.Appearance = appearance4;
             this.ubtAdd.AutoSize = true;
             this.ubtAdd.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

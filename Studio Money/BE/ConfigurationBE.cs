@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace StudioByte.StudioMoney.Configuration.BE
+namespace StudioMoney.BE
 {
     public class ConfigurationBE
     {

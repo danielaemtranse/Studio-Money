@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmSplash
     {
@@ -41,7 +41,7 @@ namespace Studio_Money.Forms
             // 
             // pnlMaster
             // 
-            this.pnlMaster.BackgroundImage = global::Studio_Money.Properties.Resources.background;
+            this.pnlMaster.BackgroundImage = global::StudioMoney.Properties.Resources.background;
             this.pnlMaster.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMaster.Controls.Add(this.grbMaster);
             this.pnlMaster.Dock = System.Windows.Forms.DockStyle.Fill;

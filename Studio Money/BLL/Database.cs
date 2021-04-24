@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
 using FirebirdSql.Data.FirebirdClient;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Business;
+using StudioMoney.BE;
 
-namespace StudioByte.Database.Business
+namespace StudioMoney.BLL
 {
     public class Database
     {

@@ -1,0 +1,4 @@
+namespace StudioMoney.DAL.Global
+{
+
+}

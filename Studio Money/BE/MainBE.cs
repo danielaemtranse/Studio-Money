@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace StudioByte.StudioMoney.Main.BE
+namespace StudioMoney.BE
 {
     public class MainBE
     {

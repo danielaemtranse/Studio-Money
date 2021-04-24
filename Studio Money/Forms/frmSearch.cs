@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Studio_Money.Classes;
-using StudioByte.StudioMoney.Main.BE;
-using StudioByte.Database.Business;
-using StudioByte.StudioMoney.Global.BE;
+using StudioMoney.BE;
+using StudioMoney.BLL;
+using StudioMoney.Classes;
 
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     public partial class frmSearch : Form
     {
@@ -75,7 +74,7 @@ namespace Studio_Money.Forms
             objBE.sItem = GlobalBE.sOpenedItem;
 
             // Instantiate Business class
-            StudioByte.StudioMoney.Main.Business.Main objBusiness = new StudioByte.StudioMoney.Main.Business.Main();
+            Main objBusiness = new Main();
 
             // Fill Business class properties
             objBusiness.ObjMainBE = objBE;

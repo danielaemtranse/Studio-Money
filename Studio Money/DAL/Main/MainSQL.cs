@@ -1,12 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using FirebirdSql.Data.FirebirdClient;
-using StudioByte.StudioMoney.Main.BE;
-using StudioByte.StudioMoney.Main.Data;
+using StudioMoney.BE;
 
-namespace StudioByte.StudioMoney.Main.Data
+namespace StudioMoney.DAL.Main
 {
 
     public class MainSQL : IMain

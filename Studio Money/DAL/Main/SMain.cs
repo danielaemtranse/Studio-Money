@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace StudioByte.StudioMoney.Main.Data
+namespace StudioMoney.DAL.Main
 {
     static class SMain
     {

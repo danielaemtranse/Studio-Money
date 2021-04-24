@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Data;
+using StudioMoney.BE;
+using StudioMoney.DAL.Configuration;
 
-namespace StudioByte.StudioMoney.Configuration.Business
+namespace StudioMoney.BLL
 {
     public class Configuration
     {

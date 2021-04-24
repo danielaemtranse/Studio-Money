@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmRegister
     {
@@ -97,7 +97,7 @@ namespace Studio_Money.Forms
             // 
             // pcbMail
             // 
-            this.pcbMail.Image = global::Studio_Money.Properties.Resources.mail22;
+            this.pcbMail.Image = global::StudioMoney.Properties.Resources.mail22;
             this.pcbMail.Location = new System.Drawing.Point(12, 142);
             this.pcbMail.Name = "pcbMail";
             this.pcbMail.Size = new System.Drawing.Size(22, 22);
@@ -108,7 +108,7 @@ namespace Studio_Money.Forms
             // pnlSub
             // 
             this.pnlSub.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSub.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlSub.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSub.Controls.Add(this.btnCancel);
             this.pnlSub.Controls.Add(this.btnNext);
@@ -121,7 +121,7 @@ namespace Studio_Money.Forms
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::Studio_Money.Properties.Resources.close221;
+            this.btnCancel.Image = global::StudioMoney.Properties.Resources.close221;
             this.btnCancel.Location = new System.Drawing.Point(228, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 30);
@@ -134,7 +134,7 @@ namespace Studio_Money.Forms
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Image = global::Studio_Money.Properties.Resources.next221;
+            this.btnNext.Image = global::StudioMoney.Properties.Resources.next221;
             this.btnNext.Location = new System.Drawing.Point(337, 6);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(103, 30);
@@ -147,7 +147,7 @@ namespace Studio_Money.Forms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlHeader.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.txtWelcomeSub);
             this.pnlHeader.Controls.Add(this.pcbHeader);
@@ -169,7 +169,7 @@ namespace Studio_Money.Forms
             // 
             // pcbHeader
             // 
-            this.pcbHeader.Image = global::Studio_Money.Properties.Resources.register;
+            this.pcbHeader.Image = global::StudioMoney.Properties.Resources.register;
             this.pcbHeader.Location = new System.Drawing.Point(12, 9);
             this.pcbHeader.Name = "pcbHeader";
             this.pcbHeader.Size = new System.Drawing.Size(49, 56);
@@ -189,7 +189,7 @@ namespace Studio_Money.Forms
             // 
             // pcbUser
             // 
-            this.pcbUser.Image = global::Studio_Money.Properties.Resources.user22;
+            this.pcbUser.Image = global::StudioMoney.Properties.Resources.user22;
             this.pcbUser.Location = new System.Drawing.Point(12, 86);
             this.pcbUser.Name = "pcbUser";
             this.pcbUser.Size = new System.Drawing.Size(22, 22);

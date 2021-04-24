@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -8,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Studio Money")]
 [assembly: AssemblyDescription("Financial Software")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Studio Byte")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Studio Money")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("Daniela Andrade")]

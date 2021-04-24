@@ -1,16 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Business;
-using StudioByte.StudioMoney.Configuration.Data;
-using Studio_Money.Classes;
+using StudioMoney.BE;
+using StudioMoney.BLL;
+using StudioMoney.Classes;
 
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     public partial class frmRegister : Form
     {

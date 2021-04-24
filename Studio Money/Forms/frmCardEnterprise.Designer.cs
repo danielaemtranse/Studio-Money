@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmCardEnterprise
     {

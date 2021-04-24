@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using FirebirdSql.Data.FirebirdClient;
-using StudioByte.StudioMoney.Bank.BE;
-using StudioByte.StudioMoney.Bank.Data;
+using StudioMoney.BE;
 
-namespace StudioByte.StudioMoney.Bank.Data
+namespace StudioMoney.DAL.Bank
 {
 
     public class BankSQL : IBank
@@ -236,7 +233,7 @@ namespace StudioByte.StudioMoney.Bank.Data
 
             }
 
-            catch (Exception ex)
+            catch
             {
                 return 3;
             }

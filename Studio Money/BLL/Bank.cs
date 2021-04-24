@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using FirebirdSql.Data.FirebirdClient;
-using StudioByte.StudioMoney.Bank.BE;
-using StudioByte.StudioMoney.Bank.Data;
+using StudioMoney.BE;
+using StudioMoney.DAL.Bank;
 
-namespace StudioByte.StudioMoney.Bank.Business
+namespace StudioMoney.BLL
 {
     public class Bank
     {

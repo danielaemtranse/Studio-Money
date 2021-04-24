@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmLogon
     {
@@ -147,7 +147,7 @@ namespace Studio_Money.Forms
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
-            this.button2.Image = global::Studio_Money.Properties.Resources.close22;
+            this.button2.Image = global::StudioMoney.Properties.Resources.close22;
             this.button2.Location = new System.Drawing.Point(136, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 30);
@@ -160,7 +160,7 @@ namespace Studio_Money.Forms
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
-            this.button1.Image = global::Studio_Money.Properties.Resources.gotoapp22;
+            this.button1.Image = global::StudioMoney.Properties.Resources.gotoapp22;
             this.button1.Location = new System.Drawing.Point(8, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 30);
@@ -243,7 +243,7 @@ namespace Studio_Money.Forms
             // pnlLogonSub
             // 
             this.pnlLogonSub.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogonSub.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlLogonSub.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlLogonSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogonSub.Controls.Add(this.btnExit);
             this.pnlLogonSub.Controls.Add(this.btnEnter);
@@ -256,7 +256,7 @@ namespace Studio_Money.Forms
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Image = global::Studio_Money.Properties.Resources.exit32;
+            this.btnExit.Image = global::StudioMoney.Properties.Resources.exit32;
             this.btnExit.Location = new System.Drawing.Point(10, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(103, 30);
@@ -268,7 +268,7 @@ namespace Studio_Money.Forms
             // btnEnter
             // 
             this.btnEnter.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Image = global::Studio_Money.Properties.Resources.gotoapp22;
+            this.btnEnter.Image = global::StudioMoney.Properties.Resources.gotoapp22;
             this.btnEnter.Location = new System.Drawing.Point(119, 6);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(103, 30);
@@ -279,7 +279,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::Studio_Money.Properties.Resources.key22;
+            this.pictureBox6.Image = global::StudioMoney.Properties.Resources.key22;
             this.pictureBox6.Location = new System.Drawing.Point(12, 141);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(22, 22);
@@ -300,7 +300,7 @@ namespace Studio_Money.Forms
             // pnlLogon
             // 
             this.pnlLogon.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlLogon.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlLogon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogon.Controls.Add(this.label3);
             this.pnlLogon.Controls.Add(this.lblLogonSub);
@@ -333,7 +333,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Studio_Money.Properties.Resources._259;
+            this.pictureBox4.Image = global::StudioMoney.Properties.Resources._259;
             this.pictureBox4.Location = new System.Drawing.Point(-4, -5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(80, 77);
@@ -343,7 +343,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Studio_Money.Properties.Resources.key22;
+            this.pictureBox3.Image = global::StudioMoney.Properties.Resources.key22;
             this.pictureBox3.Location = new System.Drawing.Point(8, 135);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 22);
@@ -362,7 +362,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Studio_Money.Properties.Resources.entrance;
+            this.pictureBox1.Image = global::StudioMoney.Properties.Resources.entrance;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(210, 62);

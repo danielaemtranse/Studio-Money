@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmLanguage
     {
@@ -67,7 +67,7 @@ namespace Studio_Money.Forms
             // pnlLogon
             // 
             this.pnlLogon.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLogon.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlLogon.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlLogon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLogon.Controls.Add(this.label1);
             this.pnlLogon.Controls.Add(this.lblHeaderSub);
@@ -100,7 +100,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Studio_Money.Properties.Resources.web;
+            this.pictureBox4.Image = global::StudioMoney.Properties.Resources.web;
             this.pictureBox4.Location = new System.Drawing.Point(12, 8);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(54, 54);
@@ -111,7 +111,7 @@ namespace Studio_Money.Forms
             // pnlSub
             // 
             this.pnlSub.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSub.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlSub.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSub.Controls.Add(this.btnOK);
             this.pnlSub.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -123,7 +123,7 @@ namespace Studio_Money.Forms
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Image = global::Studio_Money.Properties.Resources.accept22;
+            this.btnOK.Image = global::StudioMoney.Properties.Resources.accept22;
             this.btnOK.Location = new System.Drawing.Point(104, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(103, 30);

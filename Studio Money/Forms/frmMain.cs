@@ -3,18 +3,15 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using Studio_Money.Classes;
+using StudioMoney.Classes;
 
 using Infragistics.Shared;
 using Infragistics.Win.UltraWinToolbars;
 using Infragistics.Win.UltraWinEditors;
+using StudioMoney.BE;
+using StudioMoney.BLL;
 
-using StudioByte.Database.Business;
-using StudioByte.StudioMoney.Bank.BE;
-using StudioByte.StudioMoney.Bank.Business;
-using StudioByte.StudioMoney.Global.BE;
-
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     public partial class frmMain : Form
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace StudioByte.StudioMoney.Bank.Data
+namespace StudioMoney.DAL.Bank
 {
     static class SBank
     {

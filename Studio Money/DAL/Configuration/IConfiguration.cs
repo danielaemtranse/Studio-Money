@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using StudioByte.StudioMoney.Configuration.BE;
+using StudioMoney.BE;
 
-namespace StudioByte.StudioMoney.Configuration.Data
+namespace StudioMoney.DAL.Configuration
 {
     interface IConfiguration
     {

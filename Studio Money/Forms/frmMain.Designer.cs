@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmMain
     {
@@ -59,8 +59,8 @@ namespace Studio_Money.Forms
             treeNode10,
             treeNode11,
             treeNode12});
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
@@ -69,6 +69,8 @@ namespace Studio_Money.Forms
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.RibbonTab ribbonTab1 = new Infragistics.Win.UltraWinToolbars.RibbonTab("ribbon1");
+            Infragistics.Win.UltraWinToolbars.RibbonGroup ribbonGroup1 = new Infragistics.Win.UltraWinToolbars.RibbonGroup("ribbonGroup1");
             Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar1 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("utbToolbar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool3 = new Infragistics.Win.UltraWinToolbars.ButtonTool("btnCadastreBank");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool5 = new Infragistics.Win.UltraWinToolbars.ButtonTool("ButtonTool1");
@@ -137,6 +139,8 @@ namespace Studio_Money.Forms
             Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool48 = new Infragistics.Win.UltraWinToolbars.ButtonTool("btnCadastreVendor");
             Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool17 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Banco");
+            Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
             this.usbStatus = new Infragistics.Win.UltraWinStatusBar.UltraStatusBar();
             this.imlTreeView = new System.Windows.Forms.ImageList(this.components);
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -170,6 +174,9 @@ namespace Studio_Money.Forms
             this._frmMain_Toolbars_Dock_Area_Right = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
             this._frmMain_Toolbars_Dock_Area_Top = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
             this._frmMain_Toolbars_Dock_Area_Bottom = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.usbStatus)).BeginInit();
             this.pnlLeft.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -181,6 +188,7 @@ namespace Studio_Money.Forms
             this.pnlNewDeleteSaveButtons.SuspendLayout();
             this.flpNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utmToolbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // usbStatus
@@ -198,7 +206,7 @@ namespace Studio_Money.Forms
             ultraStatusPanel2.Style = Infragistics.Win.UltraWinStatusBar.PanelStyle.Progress;
             appearance3.FontData.Name = "Trebuchet MS";
             appearance3.FontData.SizeInPoints = 8F;
-            appearance3.Image = global::Studio_Money.Properties.Resources.database;
+            appearance3.Image = global::StudioMoney.Properties.Resources.database;
             ultraStatusPanel3.Appearance = appearance3;
             ultraStatusPanel3.SizingMode = Infragistics.Win.UltraWinStatusBar.PanelSizingMode.Spring;
             ultraStatusPanel3.Style = Infragistics.Win.UltraWinStatusBar.PanelStyle.AutoStatusText;
@@ -289,7 +297,7 @@ namespace Studio_Money.Forms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlHeader.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHeader.BackgroundImage")));
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.lblCurrentHeader);
             this.pnlHeader.Controls.Add(this.lblCurrentHeaderSub);
@@ -322,7 +330,7 @@ namespace Studio_Money.Forms
             // 
             // pcbCurrentPicture
             // 
-            this.pcbCurrentPicture.Image = global::Studio_Money.Properties.Resources.bank;
+            this.pcbCurrentPicture.Image = global::StudioMoney.Properties.Resources.bank;
             this.pcbCurrentPicture.Location = new System.Drawing.Point(12, 8);
             this.pcbCurrentPicture.Name = "pcbCurrentPicture";
             this.pcbCurrentPicture.Size = new System.Drawing.Size(54, 54);
@@ -434,7 +442,7 @@ namespace Studio_Money.Forms
             // 
             // ubtSave
             // 
-            appearance6.Image = global::Studio_Money.Properties.Resources.add_16;
+            appearance6.Image = global::StudioMoney.Properties.Resources.add_16;
             this.ubtSave.Appearance = appearance6;
             this.ubtSave.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtSave.Location = new System.Drawing.Point(371, 2);
@@ -447,7 +455,7 @@ namespace Studio_Money.Forms
             // 
             // ubtDelete
             // 
-            appearance7.Image = global::Studio_Money.Properties.Resources.delete_16;
+            appearance7.Image = global::StudioMoney.Properties.Resources.delete_16;
             this.ubtDelete.Appearance = appearance7;
             this.ubtDelete.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtDelete.Location = new System.Drawing.Point(262, 2);
@@ -460,7 +468,7 @@ namespace Studio_Money.Forms
             // 
             // ubtNew
             // 
-            appearance8.Image = global::Studio_Money.Properties.Resources.documents_16;
+            appearance8.Image = global::StudioMoney.Properties.Resources.documents_16;
             this.ubtNew.Appearance = appearance8;
             this.ubtNew.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtNew.Location = new System.Drawing.Point(153, 2);
@@ -473,7 +481,7 @@ namespace Studio_Money.Forms
             // 
             // flpNavigation
             // 
-            this.flpNavigation.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.flpNavigation.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.flpNavigation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpNavigation.Controls.Add(this.ubtLast);
             this.flpNavigation.Controls.Add(this.ubtNext);
@@ -594,6 +602,12 @@ namespace Studio_Money.Forms
             this.utmToolbar.Office2007UICompatibility = false;
             this.utmToolbar.Ribbon.FileMenuStyle = Infragistics.Win.UltraWinToolbars.FileMenuStyle.None;
             this.utmToolbar.Ribbon.GroupSettings.CanCollapse = Infragistics.Win.DefaultableBoolean.False;
+            ribbonTab1.Caption = "ribbon1";
+            ribbonGroup1.Caption = "ribbonGroup1";
+            ribbonTab1.Groups.AddRange(new Infragistics.Win.UltraWinToolbars.RibbonGroup[] {
+            ribbonGroup1});
+            this.utmToolbar.Ribbon.NonInheritedRibbonTabs.AddRange(new Infragistics.Win.UltraWinToolbars.RibbonTab[] {
+            ribbonTab1});
             this.utmToolbar.Ribbon.QuickAccessToolbar.Visible = false;
             this.utmToolbar.ShowFullMenusDelay = 500;
             this.utmToolbar.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007;
@@ -643,22 +657,22 @@ namespace Studio_Money.Forms
             buttonTool25,
             buttonTool26,
             buttonTool33});
-            appearance13.Image = global::Studio_Money.Properties.Resources.bank;
+            appearance13.Image = global::StudioMoney.Properties.Resources.bank;
             buttonTool2.SharedPropsInternal.AppearancesSmall.Appearance = appearance13;
             buttonTool2.SharedPropsInternal.Caption = "&Bank";
             buttonTool2.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.DefaultForToolType;
             buttonTool2.SharedPropsInternal.ToolTipText = "Bank";
-            appearance14.Image = global::Studio_Money.Properties.Resources.bank;
+            appearance14.Image = global::StudioMoney.Properties.Resources.bank;
             buttonTool4.SharedPropsInternal.AppearancesLarge.Appearance = appearance14;
-            appearance15.Image = global::Studio_Money.Properties.Resources.bank;
+            appearance15.Image = global::StudioMoney.Properties.Resources.bank;
             buttonTool4.SharedPropsInternal.AppearancesSmall.Appearance = appearance15;
             buttonTool4.SharedPropsInternal.Caption = "Bank";
-            appearance16.Image = global::Studio_Money.Properties.Resources.map_;
+            appearance16.Image = global::StudioMoney.Properties.Resources.map_;
             buttonTool6.SharedPropsInternal.AppearancesLarge.Appearance = appearance16;
-            appearance17.Image = global::Studio_Money.Properties.Resources.map_;
+            appearance17.Image = global::StudioMoney.Properties.Resources.map_;
             buttonTool6.SharedPropsInternal.AppearancesSmall.Appearance = appearance17;
             buttonTool6.SharedPropsInternal.Caption = "Category";
-            appearance18.Image = global::Studio_Money.Properties.Resources.map_;
+            appearance18.Image = global::StudioMoney.Properties.Resources.map_;
             buttonTool8.SharedPropsInternal.AppearancesSmall.Appearance = appearance18;
             buttonTool8.SharedPropsInternal.Caption = "Category";
             appearance19.Image = ((object)(resources.GetObject("appearance19.Image")));
@@ -707,6 +721,10 @@ namespace Studio_Money.Forms
             appearance31.Image = ((object)(resources.GetObject("appearance31.Image")));
             buttonTool48.SharedPropsInternal.AppearancesSmall.Appearance = appearance31;
             buttonTool48.SharedPropsInternal.Caption = "Vendor";
+            appearance32.Image = global::StudioMoney.Properties.Resources.bank;
+            buttonTool17.SharedPropsInternal.AppearancesSmall.Appearance = appearance32;
+            buttonTool17.SharedPropsInternal.Caption = "Banco";
+            buttonTool17.SharedPropsInternal.CustomizerCaption = "Banco";
             this.utmToolbar.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             popupMenuTool2,
             buttonTool2,
@@ -731,7 +749,8 @@ namespace Studio_Money.Forms
             buttonTool45,
             buttonTool46,
             buttonTool47,
-            buttonTool48});
+            buttonTool48,
+            buttonTool17});
             this.utmToolbar.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.utmToolbar_ToolClick);
             // 
             // _frmMain_Toolbars_Dock_Area_Right
@@ -767,12 +786,38 @@ namespace Studio_Money.Forms
             this._frmMain_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(1160, 0);
             this._frmMain_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.utmToolbar;
             // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem});
+            this.ribbonControl1.Location = new System.Drawing.Point(224, 143);
+            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonControl1.Size = new System.Drawing.Size(936, 150);
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1160, 646);
+            this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.splHorizontal);
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pnlHeader);
@@ -804,7 +849,9 @@ namespace Studio_Money.Forms
             this.flpNavigation.ResumeLayout(false);
             this.flpNavigation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utmToolbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -843,6 +890,8 @@ namespace Studio_Money.Forms
         private Infragistics.Win.Misc.UltraButton ubtFirst;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.ListView lvwGrid;
-        
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

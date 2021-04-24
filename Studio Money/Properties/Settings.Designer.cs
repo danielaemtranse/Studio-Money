@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Studio_Money.Properties {
+namespace StudioMoney.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

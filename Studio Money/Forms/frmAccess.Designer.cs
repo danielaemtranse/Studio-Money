@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmAccess
     {
@@ -101,7 +101,7 @@ namespace Studio_Money.Forms
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Studio_Money.Properties.Resources.users_1;
+            this.pictureBox4.Image = global::StudioMoney.Properties.Resources.users_1;
             this.pictureBox4.Location = new System.Drawing.Point(12, 12);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(50, 52);
@@ -135,7 +135,7 @@ namespace Studio_Money.Forms
             // 
             // ultraButton2
             // 
-            appearance4.Image = global::Studio_Money.Properties.Resources.next22;
+            appearance4.Image = global::StudioMoney.Properties.Resources.next22;
             this.ultraButton2.Appearance = appearance4;
             this.ultraButton2.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsXPCommandButton;
             this.ultraButton2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,7 +148,7 @@ namespace Studio_Money.Forms
             // 
             // ultraButton1
             // 
-            appearance1.Image = global::Studio_Money.Properties.Resources.next22;
+            appearance1.Image = global::StudioMoney.Properties.Resources.next22;
             this.ultraButton1.Appearance = appearance1;
             this.ultraButton1.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsXPCommandButton;
             this.ultraButton1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,7 +161,7 @@ namespace Studio_Money.Forms
             // 
             // ubtOK
             // 
-            appearance3.Image = global::Studio_Money.Properties.Resources.next22;
+            appearance3.Image = global::StudioMoney.Properties.Resources.next22;
             this.ubtOK.Appearance = appearance3;
             this.ubtOK.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsXPCommandButton;
             this.ubtOK.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,7 +188,7 @@ namespace Studio_Money.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.panel2.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnRemove);
@@ -202,7 +202,7 @@ namespace Studio_Money.Forms
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::Studio_Money.Properties.Resources.close22;
+            this.btnCancel.Image = global::StudioMoney.Properties.Resources.close22;
             this.btnCancel.Location = new System.Drawing.Point(12, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 30);
@@ -214,7 +214,7 @@ namespace Studio_Money.Forms
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Image = global::Studio_Money.Properties.Resources.deleteuser221;
+            this.btnRemove.Image = global::StudioMoney.Properties.Resources.deleteuser221;
             this.btnRemove.Location = new System.Drawing.Point(121, 6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(103, 30);
@@ -226,7 +226,7 @@ namespace Studio_Money.Forms
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Image = global::Studio_Money.Properties.Resources.adduser22;
+            this.btnAdd.Image = global::StudioMoney.Properties.Resources.adduser22;
             this.btnAdd.Location = new System.Drawing.Point(230, 6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 30);
@@ -237,7 +237,7 @@ namespace Studio_Money.Forms
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.panel1.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.ultraLabel1);
             this.panel1.Controls.Add(this.lblWelcome);
@@ -273,7 +273,7 @@ namespace Studio_Money.Forms
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Studio_Money.Properties.Resources.users1;
+            this.pictureBox1.Image = global::StudioMoney.Properties.Resources.users1;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 50);

@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Data;
-using StudioByte.StudioMoney.Configuration.Business;
-using Studio_Money.Classes;
+using StudioMoney.BE;
+using StudioMoney.BLL;
 
-namespace Studio_Money.Classes
+namespace StudioMoney.Classes
 {
     class clsValidate
     {

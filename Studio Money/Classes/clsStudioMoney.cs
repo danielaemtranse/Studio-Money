@@ -1,15 +1,12 @@
  using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+ using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Data;
-using StudioByte.StudioMoney.Configuration.Business;
-using Studio_Money.Forms;
+ using StudioMoney.BE;
+ using StudioMoney.BLL;
+ using StudioMoney.Forms;
 
-namespace Studio_Money.Classes
+namespace StudioMoney.Classes
 {
 
     class clsStudioMoney

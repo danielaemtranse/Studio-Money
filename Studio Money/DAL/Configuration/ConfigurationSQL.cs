@@ -1,24 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Text;
 using System.Data;
 using System.IO;
-using Microsoft.Win32;
-using FirebirdSql.Data.FirebirdClient;
 using System.Runtime.InteropServices;
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Data;
+using System.Text;
+using StudioMoney.BE;
 
-namespace StudioByte.StudioMoney.Configuration.Data
+namespace StudioMoney.DAL.Configuration
 {
     public class ConfigurationSQL : IConfiguration
     {
         private ConfigurationBE objConfigurationBE;
-        private FbDataAdapter da;
-        private FbCommand cm;
-        private DataTable dt;
         public string sLanguageINIFile;
         public string sConfigurationINIFile;
 

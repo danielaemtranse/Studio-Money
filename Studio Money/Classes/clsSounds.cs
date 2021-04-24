@@ -1,15 +1,9 @@
 using System;
-using System.Text;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection.Emit;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;  
-using StudioByte.StudioMoney.Configuration.BE;
-using StudioByte.StudioMoney.Configuration.Data;
-using StudioByte.StudioMoney.Configuration.Business;
+using StudioMoney.BE;
+using StudioMoney.BLL;
 
-namespace Studio_Money.Classes
+namespace StudioMoney.Classes
 {
     public class clsSounds
     {
@@ -61,7 +55,7 @@ namespace Studio_Money.Classes
             objBusiness.ObjConfigurationBE = objBE;
 
             // Instantiate sound class
-            Studio_Money.Classes.clsSounds clsSounds = new Studio_Money.Classes.clsSounds();
+            StudioMoney.Classes.clsSounds clsSounds = new StudioMoney.Classes.clsSounds();
 
             try
             {

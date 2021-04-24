@@ -1,4 +1,4 @@
-namespace Studio_Money.Forms
+namespace StudioMoney.Forms
 {
     partial class frmHome
     {
@@ -122,7 +122,7 @@ namespace Studio_Money.Forms
             // 
             // pnlAccountsValueBottom
             // 
-            this.pnlAccountsValueBottom.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlAccountsValueBottom.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlAccountsValueBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAccountsValueBottom.Controls.Add(this.lblAccountsValueDebt);
             this.pnlAccountsValueBottom.Controls.Add(this.lblAccountsValueValue);
@@ -159,7 +159,7 @@ namespace Studio_Money.Forms
             // 
             // pnlAccountsValueHeader
             // 
-            this.pnlAccountsValueHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlAccountsValueHeader.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlAccountsValueHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAccountsValueHeader.Controls.Add(this.lblAccountsValueSubHeader);
             this.pnlAccountsValueHeader.Controls.Add(this.lblAccountsValueHeader);
@@ -248,7 +248,7 @@ namespace Studio_Money.Forms
             // 
             // pnlBillHeader
             // 
-            this.pnlBillHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlBillHeader.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlBillHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBillHeader.Controls.Add(this.lblBillSubHeader);
             this.pnlBillHeader.Controls.Add(this.lblBillHeader);
@@ -293,7 +293,7 @@ namespace Studio_Money.Forms
             // 
             // pnlBillBottom
             // 
-            this.pnlBillBottom.BackgroundImage = global::Studio_Money.Properties.Resources.degrade_fd;
+            this.pnlBillBottom.BackgroundImage = global::StudioMoney.Properties.Resources.degrade_fd;
             this.pnlBillBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBillBottom.Controls.Add(this.lblBillValue);
             this.pnlBillBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -316,7 +316,7 @@ namespace Studio_Money.Forms
             // 
             // pnlGraphicHeader
             // 
-            this.pnlGraphicHeader.BackgroundImage = global::Studio_Money.Properties.Resources.backBlue;
+            this.pnlGraphicHeader.BackgroundImage = global::StudioMoney.Properties.Resources.backBlue;
             this.pnlGraphicHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlGraphicHeader.Controls.Add(this.lblGraphicSubHeader);
             this.pnlGraphicHeader.Controls.Add(this.lblGraphicHeader);
