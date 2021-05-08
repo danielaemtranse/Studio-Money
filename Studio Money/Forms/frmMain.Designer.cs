@@ -44,7 +44,7 @@ namespace StudioMoney.Forms
             this.rbsStatusBarMessage = new DevExpress.XtraBars.BarStaticItem();
             this.rbsStatusBarDatabase = new DevExpress.XtraBars.BarStaticItem();
             this.rbcToolbar = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.ddbSkinDropDownButton = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.btnBank = new DevExpress.XtraBars.BarButtonItem();
             this.btnCategory = new DevExpress.XtraBars.BarButtonItem();
             this.btnAccount = new DevExpress.XtraBars.BarButtonItem();
@@ -58,7 +58,7 @@ namespace StudioMoney.Forms
             this.btnVendor = new DevExpress.XtraBars.BarButtonItem();
             this.rbpRegister = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgToolbarRegister = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.dfcFluentDesignFormContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.nvfPages = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.nvpPrincipal = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nvpBank = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -100,10 +100,10 @@ namespace StudioMoney.Forms
             this.accInterval = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accPaymentType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accVendor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.dfcFluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fraFormSkin = new DevExpress.XtraBars.FormAssistant();
             ((System.ComponentModel.ISupportInitialize)(this.rbcToolbar)).BeginInit();
-            this.fluentDesignFormContainer1.SuspendLayout();
+            this.dfcFluentDesignFormContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nvfPages)).BeginInit();
             this.nvfPages.SuspendLayout();
             this.nvpBank.SuspendLayout();
@@ -117,7 +117,7 @@ namespace StudioMoney.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pcbCurrentPicture)).BeginInit();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dfcFluentDesignFormControl)).BeginInit();
             this.SuspendLayout();
             // 
             // rbsStatusBar
@@ -150,7 +150,7 @@ namespace StudioMoney.Forms
             this.rbcToolbar.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbcToolbar.ExpandCollapseItem,
             this.rbcToolbar.SearchEditItem,
-            this.skinDropDownButtonItem1,
+            this.ddbSkinDropDownButton,
             this.btnBank,
             this.btnCategory,
             this.btnAccount,
@@ -174,10 +174,10 @@ namespace StudioMoney.Forms
             this.rbcToolbar.StatusBar = this.rbsStatusBar;
             this.rbcToolbar.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
-            // skinDropDownButtonItem1
+            // ddbSkinDropDownButton
             // 
-            this.skinDropDownButtonItem1.Id = 23;
-            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            this.ddbSkinDropDownButton.Id = 23;
+            this.ddbSkinDropDownButton.Name = "ddbSkinDropDownButton";
             // 
             // btnBank
             // 
@@ -279,16 +279,17 @@ namespace StudioMoney.Forms
             this.rpgToolbarRegister.ItemLinks.Add(this.btnVendor);
             this.rpgToolbarRegister.Name = "rpgToolbarRegister";
             // 
-            // fluentDesignFormContainer1
+            // dfcFluentDesignFormContainer
             // 
-            this.fluentDesignFormContainer1.Controls.Add(this.nvfPages);
-            this.fluentDesignFormContainer1.Controls.Add(this.splVertical);
-            this.fluentDesignFormContainer1.Controls.Add(this.pnlLeft);
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 144);
-            this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(977, 473);
-            this.fluentDesignFormContainer1.TabIndex = 77;
-            this.fluentDesignFormContainer1.Click += new System.EventHandler(this.fluentDesignFormContainer1_Click);
+            this.dfcFluentDesignFormContainer.Controls.Add(this.nvfPages);
+            this.dfcFluentDesignFormContainer.Controls.Add(this.splVertical);
+            this.dfcFluentDesignFormContainer.Controls.Add(this.pnlLeft);
+            this.dfcFluentDesignFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dfcFluentDesignFormContainer.Location = new System.Drawing.Point(0, 144);
+            this.dfcFluentDesignFormContainer.Name = "dfcFluentDesignFormContainer";
+            this.dfcFluentDesignFormContainer.Size = new System.Drawing.Size(977, 473);
+            this.dfcFluentDesignFormContainer.TabIndex = 77;
+            this.dfcFluentDesignFormContainer.Click += new System.EventHandler(this.fluentDesignFormContainer1_Click);
             // 
             // nvfPages
             // 
@@ -631,6 +632,7 @@ namespace StudioMoney.Forms
             this.accMenu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
             this.accMenu.Size = new System.Drawing.Size(173, 473);
             this.accMenu.TabIndex = 23;
+            this.accMenu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // accRegister
             // 
@@ -723,14 +725,14 @@ namespace StudioMoney.Forms
             this.accVendor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accVendor.Text = "Vendor";
             // 
-            // fluentDesignFormControl1
+            // dfcFluentDesignFormControl
             // 
-            this.fluentDesignFormControl1.FluentDesignForm = this;
-            this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
-            this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(977, 30);
-            this.fluentDesignFormControl1.TabIndex = 78;
-            this.fluentDesignFormControl1.TabStop = false;
+            this.dfcFluentDesignFormControl.FluentDesignForm = this;
+            this.dfcFluentDesignFormControl.Location = new System.Drawing.Point(0, 0);
+            this.dfcFluentDesignFormControl.Name = "dfcFluentDesignFormControl";
+            this.dfcFluentDesignFormControl.Size = new System.Drawing.Size(977, 30);
+            this.dfcFluentDesignFormControl.TabIndex = 78;
+            this.dfcFluentDesignFormControl.TabStop = false;
             // 
             // frmMain
             // 
@@ -738,12 +740,12 @@ namespace StudioMoney.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 642);
-            this.ControlContainer = this.fluentDesignFormContainer1;
-            this.Controls.Add(this.fluentDesignFormContainer1);
+            this.ControlContainer = this.dfcFluentDesignFormContainer;
+            this.Controls.Add(this.dfcFluentDesignFormContainer);
             this.Controls.Add(this.rbsStatusBar);
             this.Controls.Add(this.rbcToolbar);
-            this.Controls.Add(this.fluentDesignFormControl1);
-            this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.Controls.Add(this.dfcFluentDesignFormControl);
+            this.FluentDesignFormControl = this.dfcFluentDesignFormControl;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Image = global::StudioMoney.Properties.Resources.money22;
             this.Name = "frmMain";
@@ -751,7 +753,7 @@ namespace StudioMoney.Forms
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.rbcToolbar)).EndInit();
-            this.fluentDesignFormContainer1.ResumeLayout(false);
+            this.dfcFluentDesignFormContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nvfPages)).EndInit();
             this.nvfPages.ResumeLayout(false);
             this.nvpBank.ResumeLayout(false);
@@ -767,7 +769,7 @@ namespace StudioMoney.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pcbCurrentPicture)).EndInit();
             this.pnlLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.accMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dfcFluentDesignFormControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -775,11 +777,11 @@ namespace StudioMoney.Forms
 
         #endregion
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar rbsStatusBar;
-        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer1;
-        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
+        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer dfcFluentDesignFormContainer;
+        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl dfcFluentDesignFormControl;
         private DevExpress.XtraBars.FormAssistant fraFormSkin;
         private DevExpress.XtraBars.Ribbon.RibbonControl rbcToolbar;
-        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.SkinDropDownButtonItem ddbSkinDropDownButton;
         private DevExpress.XtraBars.BarButtonItem btnBank;
         private DevExpress.XtraBars.BarButtonItem btnCategory;
         private DevExpress.XtraBars.BarButtonItem btnAccount;

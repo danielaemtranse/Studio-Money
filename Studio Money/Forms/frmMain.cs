@@ -95,7 +95,7 @@ namespace StudioMoney.Forms
                         accItem.Text = clsGeneral.fnGetControlCaption(this, accItem.Name);
                         accItem.Image = (Image)(Image.FromFile(
                             clsGeneral.fnGetObjectPicturePath(accItem.Name)));
-                        accItem.ImageLayoutMode = ImageLayoutMode.Stretch;
+                        accItem.ImageLayoutMode = ImageLayoutMode.Squeeze;
                         accItem.Click += accordionItem_Click;
                     }
                 });
