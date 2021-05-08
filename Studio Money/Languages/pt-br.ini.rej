@@ -1,0 +1,47 @@
+diff a/Studio Money/Languages/pt-br.ini b/Studio Money/Languages/pt-br.ini	(rejected hunks)
+@@ -30,45 +30,6 @@
+ [frmMain]
+ frmMain=:: Studio Money
+ 
+-utbToolbar=Barra de Ferramentas
+-utbMenu=Menu
+-
+-mnuCadastre-Caption=Ca&dastro
+-mnuCadastre-ToolTipText=Cadastro
+-
+-mnuCadastreBank-Caption=&Banco
+-mnuCadastreBank-ToolTipText=Banco
+-
+-mnuCadastreCategory-Caption=Cate&goria
+-mnuCadastreCategory-ToolTipText=Categoria
+-
+-mnuCadastreAccount-Caption=Co&nta
+-mnuCadastreAccount-ToolTipText=Conta
+-
+-mnuCadastreAccountType-Caption=Tipo de Con&ta
+-mnuCadastreAccountType-ToolTipText=Tipo de Conta
+-
+-mnuCadastreAdditionalUser-Caption=Adicional de Cart�o
+-mnuCadastreAdditionalUser-ToolTipText=Usu�rio adicional de cart�o de cr�dito
+-
+-mnuCadastreCard-Caption=Cart�o de Cr�dito
+-mnuCadastreCard-ToolTipText=Cart�o de Cr�dito
+-
+-mnuCadastreCardEnterprise-Caption=Administradora de Cart�o
+-mnuCadastreCardEnterprise-ToolTipText=Administradora de cart�o de cr�dito
+-
+-mnuCadastreCurrency-Caption=Moeda
+-mnuCadastreCurrency-ToolTipText=Moeda
+-
+-mnuCadastreInterval-Caption=Intervalo de Tempo
+-mnuCadastreInterval-ToolTipText=Intervalo de Tempo
+-
+-mnuCadastrePaymentType-Caption=Forma de Pagamento
+-mnuCadastrePaymentType-ToolTipText=Forma de Pagamento
+-
+-mnuCadastreVendorType-Caption=Terceiro
+-mnuCadastreVendorType-ToolTipText=Terceiro
+-
+ ubtNew=&Novo
+ ubtNew.ToolTipText=Clique aqui para limpar todos os campos habilitando a inser��o de novo registro
+ 

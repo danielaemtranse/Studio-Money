@@ -1,16 +1,17 @@
- using System;
- using System.Threading;
+using System;
+using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
- using StudioMoney.BE;
- using StudioMoney.BLL;
- using StudioMoney.Forms;
+using StudioMoney.BE;
+using StudioMoney.BLL;
+using StudioMoney.Forms;
 
 namespace StudioMoney.Classes
 {
-
     class clsStudioMoney
     {
+        [STAThread]
         public static void Main()
         {
             String sRegisteredUser = null;
@@ -36,29 +37,24 @@ namespace StudioMoney.Classes
             // Verify if language is defined
             if (sLanguage.Equals(""))
             {
-
                 // If language isn't defined
                 // instantiate and open the form to register language
                 frmLanguage _frmLanguage = new frmLanguage();
                 _frmLanguage.ShowDialog();
-
             }
 
             // If language is defined
             // verify if application is registered
             if (sRegisteredUser.Equals(""))
             {
-
                 // If application isn't registered
                 // instantiate and open the form to register user
                 frmRegister _frmRegister = new frmRegister();
                 _frmRegister.ShowDialog();
-
             }
 
             else
             {
-
                 // If application is registered     
                 // instantiate splash form
                 frmSplash _frmSplash = new frmSplash();
@@ -80,14 +76,11 @@ namespace StudioMoney.Classes
 
                 // Open main form
                 _frmMain.ShowDialog();
-
             }
-
         }
 
         public void fnGetControlsCaptions(Form oForm)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -103,19 +96,16 @@ namespace StudioMoney.Classes
             // Define caption of each Control in the Window
             foreach (Control oControl in oForm.Controls)
             {
-
                 // Define Window caption
                 oControl.Text = objBusiness.fnGetObjectCaption(oForm.Name.ToString(), oControl.Name.ToString());
 
                 // Define each caption for each control in the window
                 fnGetControlsCaptionsIterator(oForm, oControl);
             }
-
         }
 
         public void fnGetControlCaption(Form oForm, Control oControl)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -127,12 +117,10 @@ namespace StudioMoney.Classes
 
             // Define Window caption
             oControl.Text = objBusiness.fnGetObjectCaption(oForm.Name.ToString(), oControl.Name.ToString());
-
         }
 
         public String fnGetControlCaption(Form oForm, String oControl)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -144,12 +132,10 @@ namespace StudioMoney.Classes
 
             // Define Object caption
             return objBusiness.fnGetObjectCaption(oForm.Name.ToString(), oControl);
-
         }
 
         public String fnGetControlCaption(String oForm, String oControl)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -161,7 +147,6 @@ namespace StudioMoney.Classes
 
             // Define Object caption
             return objBusiness.fnGetObjectCaption(oForm, oControl);
-
         }
 
         public void fnGetControlsCaptionsIterator(Form oForm, Control oControl) {
@@ -185,12 +170,9 @@ namespace StudioMoney.Classes
                     fnGetControlsCaptionsIterator(oForm, oChildControl);
                 }
             }
-
         }
-
         public String fnGetObjectPicturePath(String sObjectName)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -202,12 +184,10 @@ namespace StudioMoney.Classes
 
             // Define Object caption
             return objBusiness.fnGetObjectPicturePath(sObjectName);
-
         }
 
         public String fnGetOptionValue(String sOption)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -219,12 +199,10 @@ namespace StudioMoney.Classes
 
             // Define Object caption
             return objBusiness.fnGetOptionValue(sOption);
-
         }
 
         public String fnGetDatabase(String sKey)
         {
-
             // Instantiate BE class
             ConfigurationBE objBE = new ConfigurationBE();
 
@@ -235,12 +213,10 @@ namespace StudioMoney.Classes
             objBusiness.ObjConfigurationBE = objBE;
 
             return objBusiness.fnGetDatabase(sKey);
-            
         }
 
         public void fnMessageBox(string sMessage, string sCaption, MessageBoxButtons oButtons, MessageBoxIcon oIcon)
         {
-
             String sWindowsSystemSound;
 
             // Delete Windows System Sound temporarily            
@@ -253,12 +229,10 @@ namespace StudioMoney.Classes
             // Undelete Windows System Sound
             Registry.SetValue("HKEY_CURRENT_USER\\AppEvents\\Schemes\\Apps\\.Default\\SystemHand\\.Current","", sWindowsSystemSound, RegistryValueKind.String);
             Registry.SetValue("HKEY_CURRENT_USER\\AppEvents\\Schemes\\Apps\\.Default\\SystemHand\\.Default","", sWindowsSystemSound, RegistryValueKind.String);
-
         }
 
         public void fnException(Form oForm, Exception ex)
         {
-
             fnMessageBox(fnGetControlCaption(oForm, "msgError.Message") + "\n\n" +
                          fnGetControlCaption(oForm, "msgError.Details") + ":\n" + 
                          ex.Message + "\n\n" +
@@ -269,8 +243,11 @@ namespace StudioMoney.Classes
                          fnGetControlCaption(oForm, "msgError.StrackTrace") + ":\n" +
                          ex.StackTrace + "\n\n",
                          fnGetControlCaption(oForm, "msgError.Header"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
         }
-
+        public bool IsDirectory(string path)
+        {
+            System.IO.FileAttributes fa = System.IO.File.GetAttributes(path);
+            return (fa & FileAttributes.Directory) != 0;
+        }
     }
 }

@@ -1,21 +1,23 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
+using DevExpress.Data.Linq;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraBars.Ribbon;
 using StudioMoney.Classes;
-
-using Infragistics.Shared;
-using Infragistics.Win.UltraWinToolbars;
 using Infragistics.Win.UltraWinEditors;
 using StudioMoney.BE;
 using StudioMoney.BLL;
 
 namespace StudioMoney.Forms
 {
-    public partial class frmMain : Form
+    public partial class frmMain : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-
         private Form _form;
 
         clsStudioMoney clsGeneral = new clsStudioMoney();
@@ -30,6 +32,12 @@ namespace StudioMoney.Forms
         int nCurrentPage = 0;
         enum Navigation : int { First = 0, Previous = -1, Next = 1, Last = 2, Same = 3 };
 
+        enum Pages : int
+        {
+            Principal = 0,
+            Bank = 1
+        }
+
         public frmMain(Form oForm)
         {
             this._form = oForm;
@@ -41,275 +49,175 @@ namespace StudioMoney.Forms
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-
         }
 
         public frmMain()
         {
-
             try
             {
                 InitializeComponent();
 
-                // Get total records to show in grid
+                // Set form icon
+                this.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+
+                // Get total records to show in grid9
                 nRecordsOnPage = int.Parse(clsGeneral.fnGetOptionValue("GridRecords").ToString());
 
                 // Set caption controls
                 clsGeneral.fnGetControlsCaptions(this);
 
                 // Set caption to first panel in statusbar
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
-                usbStatus.Refresh();
+                rbsStatusBarMessage.Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
 
                 // Set database directory information to last panel in statusbar
-                usbStatus.Panels[2].Text = clsGeneral.fnGetDatabase("Path");
+                rbsStatusBarDatabase.Caption = clsGeneral.fnGetDatabase("Path");
 
                 // Set grid information
                 //((UltraGridBase)(ugrGrid)).DisplayLayout.GroupByBox.Prompt = clsGeneral.fnGetControlCaption(this, "ugrGrid.Group");
 
-                // Clear images of ImageList
-                imlTreeView.Images.Clear();
-
-                // Get image and caption to nodes
-                foreach (TreeNode nNode in tvwTreeView.Nodes)
+                // Get image and caption to accordion
+                accMenu.ForEachElement((accItem) =>
                 {
-                    nNode.Text = clsGeneral.fnGetControlCaption(this, nNode.Name);
+                    if (accItem.Style == DevExpress.XtraBars.Navigation.ElementStyle.Item || accItem.Style == DevExpress.XtraBars.Navigation.ElementStyle.Group)
+                    {
+                        var fileImage = clsGeneral.fnGetObjectPicturePath(accItem.Name);
 
-                    if (File.Exists(clsGeneral.fnGetObjectPicturePath(nNode.Name))) {
+                        if (clsGeneral.IsDirectory(fileImage))
+                            throw new Exception(
+                                String.Format(clsGeneral.fnGetControlCaption("Errors", "PictureFileDidntSet"),
+                                    accItem.Name));
 
-                        imlTreeView.Images.Add(nNode.Name, ((Image)(System.Drawing.Bitmap.FromFile(clsGeneral.fnGetObjectPicturePath(nNode.Name)))));
-                        nNode.ImageKey = nNode.Name;
-                        nNode.SelectedImageKey = nNode.Name;
-                    
+                        if (!File.Exists(fileImage))
+                            throw new Exception(
+                                String.Format(clsGeneral.fnGetControlCaption("Errors", "FileDoesntExists"),
+                                    fileImage));
+
+                        accItem.Text = clsGeneral.fnGetControlCaption(this, accItem.Name);
+                        accItem.Image = (Image)(Image.FromFile(
+                            clsGeneral.fnGetObjectPicturePath(accItem.Name)));
+                        accItem.ImageLayoutMode = ImageLayoutMode.Stretch;
+                        accItem.Click += accordionItem_Click;
                     }
+                });
 
-                    fnSetNodeCaptionPicture(nNode);
-                }
-
-                foreach(UltraToolbar utbToolbar in utmToolbar.Toolbars) {
-
-                    utbToolbar.Text = clsGeneral.fnGetControlCaption(this, utbToolbar.Key);
-
-                }
-
-                // Get all toolbars
-                foreach (KeyedSubObjectBase oObject in utmToolbar.Toolbars.ToolbarsManager.Tools.All)
+                // Get image and caption to toolbar
+                foreach (RibbonPage rbcPage in rbcToolbar.Pages)
                 {
+                    foreach (RibbonPageGroup rbcPageGroup in rbcPage.Groups)
+                    {
+                        foreach (BarButtonItem rbcButton in rbcPageGroup.Ribbon.Items.OfType<BarButtonItem>())
+                        {
+                            if (rbcButton.Name != "")
+                            {
+                                rbcButton.Caption = clsGeneral.fnGetControlCaption(this, rbcButton.Name + "-Caption");
 
-                    // Set captions, pictures and tooltip to menu or button toolbar
-                    fnSetToolbarProperties(oObject);
-
+                                if (rbcButton.Caption != "")
+                                {
+                                    rbcButton.Hint =
+                                        clsGeneral.fnGetControlCaption(this, rbcButton.Name + "-ToolTipText");
+                                    rbcButton.ImageOptions.Image =
+                                        Image.FromFile(clsGeneral.fnGetObjectPicturePath(rbcButton.Name));
+                                    rbcButton.ItemClick += new ItemClickEventHandler(toolbarButton_Click);
+                                }
+                            }
+                        }
+                    }
                 }
 
                 pnlBottom.Height = 25 * nRecordsOnPage;
 
+                nvfPages.Pages[(int)Pages.Principal].Show();
+
+                // Play defined sound
+                clsSounds.fnPlay("Logon");
             }
 
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
 
+                Application.Exit();
+                Environment.Exit(0);
             }
         }
 
-        private void fnSetToolbarProperties(KeyedSubObjectBase oToolbar)
-        {
-
-            try
-            {
-
-                // Get all tools
-                switch (oToolbar.GetType().ToString())
-                {
-
-                    // Get all menu tools
-                    case "Infragistics.Win.UltraWinToolbars.PopupMenuTool":
-                        {
-
-                            // Define menu
-                            PopupMenuTool oMenu = (PopupMenuTool)oToolbar;
-
-                            // Set caption
-                            oMenu.SharedProps.Caption = clsGeneral.fnGetControlCaption(this, oMenu.Key + "-Caption");
-
-                            // Set tooltiptext
-                            oMenu.SharedProps.ToolTipText = clsGeneral.fnGetControlCaption(this, oMenu.Key + "-ToolTipText");
-
-                            foreach (KeyedSubObjectBase oTool in oMenu.Tools.All)
-                            {
-                                fnSetToolbarProperties(((Infragistics.Win.UltraWinToolbars.ToolBase)(oTool)));
-                            }
-
-                            break;
-
-                        }
-
-                    // Get all button tools
-                    case "Infragistics.Win.UltraWinToolbars.ButtonTool":
-                        {
-
-                            // Define button
-                            ButtonTool oButton = (ButtonTool)oToolbar;
-
-                            // Set caption
-                            oButton.SharedProps.Caption = clsGeneral.fnGetControlCaption(this, oButton.Key + "-Caption");
-
-                            // Set tooltiptext
-                            oButton.SharedProps.ToolTipText = clsGeneral.fnGetControlCaption(this, oButton.Key + "-ToolTipText");
-
-                            // Define appearance 
-                            Infragistics.Win.Appearance oButtonAppearance = new Infragistics.Win.Appearance();
-
-                            if (System.IO.File.Exists(clsGeneral.fnGetObjectPicturePath(oButton.Key)) == true)
-                            {
-                                oButtonAppearance.Image = System.Drawing.Bitmap.FromFile(clsGeneral.fnGetObjectPicturePath(oButton.Key));
-                            }
-
-                            // Set image
-                            oButton.SharedProps.AppearancesSmall.Appearance = oButtonAppearance;
-
-                            break;
-
-                        }
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-
-            }
-
-        }
-
-        private void fnSetNodeCaptionPicture(TreeNode nNode)
-        {
-
-            try
-            {
-
-                foreach (TreeNode nNextNode in nNode.Nodes)
-                {
-                    
-                    nNextNode.Text = clsGeneral.fnGetControlCaption(this, nNextNode.Name);
-
-                    if (File.Exists(clsGeneral.fnGetObjectPicturePath(nNextNode.Name)))
-                    {
-
-                        imlTreeView.Images.Add(nNextNode.Name, ((Image)(System.Drawing.Bitmap.FromFile(clsGeneral.fnGetObjectPicturePath(nNextNode.Name)))));
-                        nNextNode.ImageKey = nNextNode.Name;
-                        nNextNode.SelectedImageKey = nNextNode.Name;
-
-                    }
-
-                    fnSetNodeCaptionPicture(nNextNode);
-
-                }
-            }
-
-            catch(Exception ex) 
-            {
-
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-
-            }
-        }
-
-        private void mnuCadastreBank_Click(object sender, EventArgs e)
+        void accordionItem_Click(object sender, EventArgs e)
         {
             clsSounds.fnPlay("Click");
-            fnOpenMenuItem("CadastreBank");
+            AccordionControlElement element = sender as AccordionControlElement;
+            fnOpenMenuItem(element.Name);
         }
 
-        private void fnOpenMenuItem(String sCaption)
+        void toolbarButton_Click(object sender, ItemClickEventArgs e)
+        {
+            clsSounds.fnPlay("Click");
+
+            BarSubItem subMenu = e.Item as BarSubItem;
+            if (subMenu != null) return;
+            fnOpenMenuItem(e.Item.Name);
+        }
+
+        private void fnOpenMenuItem(String sName)
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
 
-                Cursor.Current = Cursors.WaitCursor; 
+                // Set caption to first panel in statusbar
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Grid.Loading");
 
-                // Set caption to fist panel in statusbar
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Grid.Loading");
-                usbStatus.Refresh();
-                
-                switch (sCaption.Substring(3, sCaption.Length - 3))
+                switch (sName)
                 {
 
-                    case "CadastreBank":
+                    case "btnBank":
 
-                        frmBank _frmCadastreBank = new frmBank();
-                        _frmCadastreBank.MdiParent = this;
+                        frmBank _frmBank = new frmBank();
+                        _frmBank.MdiParent = this;
 
-                        sOpenedMenuItem = "CadastreBank";
+                        sOpenedMenuItem = "Bank";
 
                         //spcRight.Visible = true;
 
                         lblCurrentHeader.Text = clsGeneral.fnGetControlCaption(this, "lblCurrentHeader-Bank");
                         lblCurrentHeaderSub.Text = clsGeneral.fnGetControlCaption(this, "lblCurrentHeaderSub-Bank");
 
-                        _frmCadastreBank.Dock = DockStyle.Fill;
-                        _frmCadastreBank.Show();
+                        _frmBank.Dock = DockStyle.Fill;
+                        _frmBank.Show();
 
                         pcbCurrentPicture.ImageLocation = clsGeneral.fnGetObjectPicturePath("Bank-Large");
 
-                        fnGridPopulate(sCaption);
+                        fnGridPopulate(sName);
 
                         break;
                 }
 
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
-                usbStatus.Refresh();
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
 
                 Cursor.Current = Cursors.Default;
-
             }
 
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             clsSounds.fnPlay("Logon");
-
             fnShowHideHome(true);
-
-        }
-
-        private void utmToolbar_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
-        {
-            clsSounds.fnPlay("Click");
-            fnOpenMenuItem(((UltraToolbarsManager)(sender)).ActiveTool.Key);
         }
 
         public void fnGridPopulate(params object[] args)
         {
-
             try
             {
                 String sCaption = "";
@@ -317,7 +225,6 @@ namespace StudioMoney.Forms
 
                 for (int i = 1; i < args.GetLength(0) + 1; i++)
                 {
-
                     if (i == 1)
                     {
                         sCaption = (String)args[i - 1];
@@ -327,13 +234,11 @@ namespace StudioMoney.Forms
                     {
                         sParameters += (String)args[i - 1];
                     }
-
                 }
 
                 switch (sCaption.Substring(3, sCaption.Length - 3))
                 {
-
-                    case "CadastreBank":
+                    case "Bank":
 
                         Database objDatabase = new Database();
                         oConnection = (Object)objDatabase.oConnection;
@@ -371,37 +276,28 @@ namespace StudioMoney.Forms
                         fnPaginateGrid(Navigation.First);
 
                         break;
-
                 }
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void fnPaginateGrid(params object[] args)
         {
-
             try
             {
-
                 int nPage = 0;
                 int nFirstRecord = 0;
                 int nLastRecord = 0;
                 int nCurrentRecord = 0;
 
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Grid.Loading");
-                usbStatus.Refresh();
+                //usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Grid.Loading");
 
                 for (int i = 1; i < args.GetLength(0) + 1; i++)
                 {
@@ -531,32 +427,25 @@ namespace StudioMoney.Forms
                         }
 
                     }
-
                 }
 
                 lvwGrid.Columns[lvwGrid.Columns.Count - 1].Width = -2;
 
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
-                usbStatus.Refresh();
+                ///usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
 
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void ubtNew_Click(object sender, EventArgs e)
         {
-
             try
             {
                 clsSounds.fnPlay("Click");
@@ -581,23 +470,18 @@ namespace StudioMoney.Forms
                 }
 
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void fnFocusFirstControl(Control oControl)
         {
-
             try
             {
                 fnSetEmptyCaption(oControl);
@@ -611,27 +495,20 @@ namespace StudioMoney.Forms
                     }
 
                     if (oChildControl.Controls.Count > 0) { fnFocusFirstControl(oChildControl); }
-
                 }
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void fnSetEmptyCaption(Control oControl)
         {
-
             try
             {
                 if (oControl.Name.Length > 3)
@@ -646,20 +523,15 @@ namespace StudioMoney.Forms
                 {
                     fnSetEmptyCaption(oChildControl);
                 }
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void ubtFirst_Click(object sender, EventArgs e)
@@ -688,12 +560,10 @@ namespace StudioMoney.Forms
 
         private void ubtDelete_Click(object sender, EventArgs e)
         {
-
             try
             {
                 clsSounds.fnPlay("Click");
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Deleting");
-                usbStatus.Refresh();
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Deleting");
 
                 if (lvwGrid.SelectedItems.Count > 0)
                 {
@@ -768,11 +638,8 @@ namespace StudioMoney.Forms
                             }
 
                             clsSounds.fnPlay("Deleted");
-
                         }
-
                     }
-
                     else
                     {
                         lvwGrid.Items[lvwGrid.SelectedItems[0].Index].Selected = true;
@@ -788,31 +655,23 @@ namespace StudioMoney.Forms
                     clsGeneral.fnMessageBox(clsGeneral.fnGetControlCaption(this, "msgDelete.NoRecord"), clsGeneral.fnGetControlCaption(this, "msgDelete.Header"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
-
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
-
-         private void ubtSave_Click(object sender, EventArgs e)
+        private void ubtSave_Click(object sender, EventArgs e)
         {
-
             try
             {
                 clsSounds.fnPlay("Click");
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Saving");
-                usbStatus.Refresh();
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Saving");
 
                 int nSelectedRecord = 0;
                 int nSelectedIndex = 0;
@@ -828,12 +687,12 @@ namespace StudioMoney.Forms
                 switch (sOpenedMenuItem)
                 {
 
-                    case "CadastreBank":
+                    case "Bank":
                         {
 
-                            frmBank _frmCadastreBank = (frmBank)this._form;
+                            frmBank _frmBank = (frmBank)this._form;
 
-                            if (fnValidateEmpty(_frmCadastreBank.txtCode, _frmCadastreBank.txtDescription) == true)
+                            if (fnValidateEmpty(_frmBank.txtCode, _frmBank.txtDescription) == true)
                             {
                                 Database objDatabase = new Database();
                                 oConnection = (Object)objDatabase.oConnection;
@@ -843,8 +702,8 @@ namespace StudioMoney.Forms
 
                                 // Fill BE class properties
                                 objBE.oConnection = oConnection;
-                                objBE.nBank = Int32.Parse(_frmCadastreBank.txtCode.Text);
-                                objBE.sBank = _frmCadastreBank.txtDescription.Text;
+                                objBE.nBank = Int32.Parse(_frmBank.txtCode.Text);
+                                objBE.sBank = _frmBank.txtDescription.Text;
 
                                 // Instantiate Business class
                                 Bank objBusiness = new Bank();
@@ -860,7 +719,6 @@ namespace StudioMoney.Forms
 
                                 if (nResult > 1)
                                 {
-
                                     // Get datatable records
                                     switch (nResult)
                                     {
@@ -923,38 +781,27 @@ namespace StudioMoney.Forms
                                                 break;
                                             }
                                     }
-
-
                                 }
-
                             }
 
                             break;
-
                         }
-
                 }
 
-                usbStatus.Panels[0].Text = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
-
+                rbsStatusBar.Ribbon.Items[0].Caption = clsGeneral.fnGetControlCaption(this, "usbStatus.Ready");
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private bool fnValidateEmpty(params object[] args)
         {
-
             bool bValidate = true;
 
             try
@@ -976,22 +823,17 @@ namespace StudioMoney.Forms
                 {
                     clsGeneral.fnMessageBox(clsGeneral.fnGetControlCaption(this, "msgMandatoryField"), clsGeneral.fnGetControlCaption(this, "msgMandatoryField.Header"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
 
             return bValidate;
-
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -1001,7 +843,6 @@ namespace StudioMoney.Forms
 
         private void ubtSearch_Click(object sender, EventArgs e)
         {
-
             try
             {
                 clsSounds.fnPlay("Click");
@@ -1021,50 +862,19 @@ namespace StudioMoney.Forms
                 // Instantiate and open the form to search
                 frmSearch _frmSearch = new frmSearch(this);
                 _frmSearch.Show();
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
-        }
-
-        private void tvwTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-            clsSounds.fnPlay("Click");
-
-            if (tvwTreeView.SelectedNode.Name != "tvwHome")
-            {
-
-                fnShowHideHome(false);
-                fnOpenMenuItem(tvwTreeView.SelectedNode.Name);
-
-            }
-
-            else
-            {
-                fnShowHideHome(true);
-            }
-
-        }
-
-        private void lvwGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void lvwGrid_Click(object sender, EventArgs e)
         {
-
             try
             {
                 clsSounds.fnPlay("Click");
@@ -1077,32 +887,27 @@ namespace StudioMoney.Forms
 
                             if (lvwGrid.SelectedItems.Count > 0)
                             {
-                                frmBank _frmCadastreBank = (frmBank)this._form;
+                                frmBank _frmBank = (frmBank)this._form;
 
-                                _frmCadastreBank.txtCode.Text = lvwGrid.SelectedItems[0].Text;
-                                _frmCadastreBank.txtDescription.Text = lvwGrid.SelectedItems[0].SubItems[1].Text;
+                                _frmBank.txtCode.Text = lvwGrid.SelectedItems[0].Text;
+                                _frmBank.txtDescription.Text = lvwGrid.SelectedItems[0].SubItems[1].Text;
                             }
                             break;
                         }
                 }
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void lvwGrid_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-
             try
             {
                 // Determine if clicked column is already the column that is being sorted.
@@ -1127,20 +932,15 @@ namespace StudioMoney.Forms
 
                 // Perform the sort with these new sort options.
                 this.lvwGrid.Sort();
-
             }
-
             catch (Exception ex)
             {
-
                 // Play defined sound
                 clsSounds.fnPlay("Error");
 
                 // Show exception in a message box
                 clsGeneral.fnException(this, ex);
-
             }
-
         }
 
         private void lvwGrid_KeyUp(object sender, KeyEventArgs e)
@@ -1150,12 +950,11 @@ namespace StudioMoney.Forms
 
         private void fnShowHideHome(bool bShow)
         {
-
             if (bShow == true)
             {
                 pnlHeader.Visible = false;
                 pnlBottom.Visible = false;
-                splHorizontal.Visible = false;
+                //splHorizontal.Visible = false;
 
                 frmHome _frmHome = new frmHome();
                 _frmHome.MdiParent = this;
@@ -1165,16 +964,42 @@ namespace StudioMoney.Forms
 
             else
             {
-
                 this.ActiveMdiChild.Close();
 
                 pnlHeader.Visible = true;
                 pnlBottom.Visible = true;
-                splHorizontal.Visible = true;
-
+                //splHorizontal.Visible = true;
             }
         }
 
-     }
+        private void fluentDesignFormContainer1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void dockPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hideContainerRight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flpNavigation_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlThreeButtons_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

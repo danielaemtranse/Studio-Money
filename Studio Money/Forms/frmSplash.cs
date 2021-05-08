@@ -13,14 +13,11 @@ namespace StudioMoney.Forms
         {
             InitializeComponent();
             clsGeneral.fnGetControlsCaptions(this);
-
         }
 
         private void frmSplash_Load(object sender, EventArgs e)
         {
 
-
         }
-
     }
 }

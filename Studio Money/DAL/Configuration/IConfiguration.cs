@@ -11,13 +11,13 @@ namespace StudioMoney.DAL.Configuration
         {
             get;
             set;
-
         }
 
         String fnGetCurrentLanguage();
         void fnSetCurrentLanguage(String sLanguage);
         DataTable fnGetExistentLanguages();
         String fnGetSoundFile(String sEventName);
+        Boolean fnGetIfSoundIsOn();
         String fnGetObjectCaption(String sFormName, String sObjectName);
         String fnGetObjectPicturePath(String sObjectName);
         String fnGetOptionValue(String sOption);

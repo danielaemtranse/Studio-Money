@@ -10,8 +10,8 @@ namespace StudioMoney.DAL.Configuration
     public class ConfigurationSQL : IConfiguration
     {
         private ConfigurationBE objConfigurationBE;
-        public string sLanguageINIFile;
-        public string sConfigurationINIFile;
+        public string SLanguageIniFile;
+        public string SConfigurationIniFile;
 
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
@@ -42,20 +42,19 @@ namespace StudioMoney.DAL.Configuration
 
         public String fnGetCurrentLanguage()
         {
-            return fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "Language");
+            return fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "Language");
         }
 
         public void fnSetCurrentLanguage(String sLanguage)
         {
-            fnSetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "Language", sLanguage);
+            fnSetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "Language", sLanguage);
             ObjConfigurationBE.sLanguage = sLanguage;
         }
 
         public DataTable fnGetExistentLanguages()
         {
-
             // Get existent languages in the specified directory
-            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(fnGetINIFileDirectory());
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(fnGetIniFileDirectory());
 
             // Create dataset of language tables
             DataSet dsLanguage = new DataSet("Language");
@@ -74,26 +73,21 @@ namespace StudioMoney.DAL.Configuration
             {
                 foreach (System.IO.FileInfo f in dir.GetFiles("*.ini"))
                 {
-
                     // Get language file directory and name
-                    sLanguageINIFile = f.FullName.ToString();
+                    SLanguageIniFile = f.FullName.ToString();
 
                     // Add register about current language
                     DataRow drLanguage = dtLanguage.NewRow();
-                    drLanguage["sLanguage"] = fnGetINIValue(sLanguageINIFile, "Configuration", "Description");
-                    drLanguage["sIcon"] = ObjConfigurationBE.sApplicationDirectory + "Languages\\" + fnGetINIValue(sLanguageINIFile, "Configuration", "Icon");
-                    drLanguage["sKey"] = fnGetINIValue(sLanguageINIFile, "Configuration", "Icon");
+                    drLanguage["sLanguage"] = fnGetIniValue(SLanguageIniFile, "Configuration", "Description");
+                    drLanguage["sIcon"] = ObjConfigurationBE.sApplicationDirectory + "Languages\\" + fnGetIniValue(SLanguageIniFile, "Configuration", "Icon");
+                    drLanguage["sKey"] = fnGetIniValue(SLanguageIniFile, "Configuration", "Icon");
                     drLanguage["sFile"] = f.Name.ToString();
 
                     dtLanguage.Rows.Add(drLanguage);
-
                 }
-
             }
-
             else
             {
-
                 // Add register about current language
                 DataRow drLanguage = dtLanguage.NewRow();
                 drLanguage["sLanguage"] = "No language files found.";
@@ -101,58 +95,61 @@ namespace StudioMoney.DAL.Configuration
                 drLanguage["sFile"] = "";
 
                 dtLanguage.Rows.Add(drLanguage);
-
             }
 
             return dtLanguage;
-
         }
 
         public String fnGetSoundFile(String sEventName)
         {
-            return ObjConfigurationBE.sApplicationDirectory + "Sounds\\" + fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Sounds", sEventName);
+            return ObjConfigurationBE.sApplicationDirectory + "Sounds\\" + fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Sounds", sEventName);
+        }
+
+        public Boolean fnGetIfSoundIsOn()
+        {
+            return (fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Sounds", "OnOff") == "1" ? true : false);
         }
 
         public String fnGetRegisteredUser()
         {
-            return fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "User");
+            return fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "User");
         }
 
         public void fnSetRegisteredUser(String sRegisteredUser, String sRegisteredUserEMail)
         {
-            fnSetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "User", sRegisteredUser);
-            fnSetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "EMail", sRegisteredUserEMail);
+            fnSetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "User", sRegisteredUser);
+            fnSetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Register", "EMail", sRegisteredUserEMail);
             ObjConfigurationBE.sRegisteredUser = sRegisteredUser;
         }
 
-        public string fnGetINIFileDirectory()
+        public string fnGetIniFileDirectory()
         {
             return System.IO.Path.GetDirectoryName(ObjConfigurationBE.sApplicationDirectory) + "\\Languages";
         }
 
         public bool fnGetExistentFile()
         {
-            return File.Exists(fnGetINIFileDirectory());
+            return File.Exists(fnGetIniFileDirectory());
         }
 
         public String fnGetObjectCaption(String sFormName, String sObjectName)
         {
-            return fnGetINIValue(fnGetINIFileDirectory() + "\\" + fnGetCurrentLanguage(), sFormName, sObjectName);
+            return fnGetIniValue(fnGetIniFileDirectory() + "\\" + fnGetCurrentLanguage(), sFormName, sObjectName);
         }
 
         public String fnGetObjectPicturePath(String sObjectName)
         {
-            return System.IO.Path.GetDirectoryName(ObjConfigurationBE.sApplicationDirectory) + "\\Images\\" + fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Pictures", sObjectName);
+            return System.IO.Path.GetDirectoryName(ObjConfigurationBE.sApplicationDirectory) + "\\Images\\" + fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Pictures", sObjectName);
         }
 
         public String fnGetOptionValue(String sOption)
         {
-            return fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Options", sOption);
+            return fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Options", sOption);
         }
 
         public String fnGetDatabase(String sKey)
         {
-            return ObjConfigurationBE.sApplicationDirectory + fnGetINIValue(ObjConfigurationBE.sConfigurationINIFile, "Database", sKey);
+            return ObjConfigurationBE.sApplicationDirectory + fnGetIniValue(ObjConfigurationBE.sConfigurationINIFile, "Database", sKey);
         }
 
         /// <summary>
@@ -164,7 +161,7 @@ namespace StudioMoney.DAL.Configuration
         /// Key name
         /// <PARAM name="sValue"></PARAM>
         /// Value
-        public void fnSetINIValue(string sINIFile, string sSection, string sKey, string sValue)
+        public void fnSetIniValue(string sINIFile, string sSection, string sKey, string sValue)
         {
             WritePrivateProfileString(sSection, sKey, sValue, sINIFile);
         }
@@ -175,7 +172,7 @@ namespace StudioMoney.DAL.Configuration
         /// <PARAM name="sSection"></PARAM>
         /// <PARAM name="sKey"></PARAM>
         /// <returns></returns>
-        public string fnGetINIValue(string sINIFile, string sSection, string sKey)
+        public string fnGetIniValue(string sINIFile, string sSection, string sKey)
         {
             StringBuilder temp = new StringBuilder(255);
             int i = GetPrivateProfileString(sSection, sKey, "", temp, 255, sINIFile);

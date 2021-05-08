@@ -493,16 +493,6 @@ namespace StudioMoney.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap map_ {
-            get {
-                object obj = ResourceManager.GetObject("map_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap money22 {
             get {
                 object obj = ResourceManager.GetObject("money22", resourceCulture);

@@ -29,18 +29,19 @@ namespace StudioMoney.Classes
             SND_FILENAME = 0x00020000, // name is file name 
             SND_RESOURCE = 0x00040004  // name is resource name or atom 
         }
-
         public void fnPlay(string sEvent)
         {
             // Instantiate BE
             ConfigurationBE objBE = new ConfigurationBE();
 
             // Fill BE Properties
-            if (System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf("bin") > 0)
+            if (System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf("bin", StringComparison.Ordinal) > 0)
             {
-                objBE.sApplicationDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf("bin"), System.Reflection.Assembly.GetExecutingAssembly().Location.Length - System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf("bin"));
+                objBE.sApplicationDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(
+                    System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf("bin", StringComparison.Ordinal),
+                    System.Reflection.Assembly.GetExecutingAssembly().Location.Length - System.Reflection.Assembly
+                        .GetExecutingAssembly().Location.IndexOf("bin", StringComparison.Ordinal));
             }
-
             else
             {
                 objBE.sApplicationDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -49,27 +50,17 @@ namespace StudioMoney.Classes
             objBE.sConfigurationINIFile = objBE.sApplicationDirectory + "Configuration\\StudioMoney.ini";
 
             // Instantiate business class
-            Configuration objBusiness = new Configuration();
+            Configuration objBusiness = new Configuration {ObjConfigurationBE = objBE};
 
             // Fill properties of business class
-            objBusiness.ObjConfigurationBE = objBE;
 
             // Instantiate sound class
             StudioMoney.Classes.clsSounds clsSounds = new StudioMoney.Classes.clsSounds();
 
-            try
-            {
-                string wfname = objBusiness.fnGetSoundFile(sEvent);
-                PlaySound(wfname, IntPtr.Zero, SoundFlags.SND_FILENAME | SoundFlags.SND_ASYNC);
-            }
-
-            catch
-            {
-
-            }
-
+            // Verify if sound is on
+            if (objBusiness.fnGetIfSoundIsOn() == true)
+                PlaySound(objBusiness.fnGetSoundFile(sEvent), IntPtr.Zero,
+                    SoundFlags.SND_FILENAME | SoundFlags.SND_ASYNC);
         }
-
     }   
-
 }
