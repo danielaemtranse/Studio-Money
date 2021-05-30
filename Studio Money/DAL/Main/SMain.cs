@@ -6,10 +6,7 @@ namespace StudioMoney.DAL.Main
     {
         public static IMain GetDataClass(Object _oConnection)
         {
-
             return new MainSQL();
-
         }
-
     }
 }

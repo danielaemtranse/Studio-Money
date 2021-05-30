@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using DevExpress.Data.Linq;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
@@ -95,8 +94,7 @@ namespace StudioMoney.Forms
                         accItem.Text = clsGeneral.fnGetControlCaption(this, accItem.Name);
                         accItem.Image = (Image)(Image.FromFile(
                             clsGeneral.fnGetObjectPicturePath(accItem.Name)));
-                        accItem.ImageLayoutMode = ImageLayoutMode.Squeeze;
-                        accItem.Click += accordionItem_Click;
+                        accItem.ImageLayoutMode = ImageLayoutMode.Stretch;
                     }
                 });
 
@@ -117,7 +115,7 @@ namespace StudioMoney.Forms
                                         clsGeneral.fnGetControlCaption(this, rbcButton.Name + "-ToolTipText");
                                     rbcButton.ImageOptions.Image =
                                         Image.FromFile(clsGeneral.fnGetObjectPicturePath(rbcButton.Name));
-                                    rbcButton.ItemClick += new ItemClickEventHandler(toolbarButton_Click);
+                                    rbcButton.ItemClick += new ItemClickEventHandler(toolbarButton_ItemClick);
                                 }
                             }
                         }
@@ -126,7 +124,7 @@ namespace StudioMoney.Forms
 
                 pnlBottom.Height = 25 * nRecordsOnPage;
 
-                nvfPages.Pages[(int)Pages.Principal].Show();
+                showPage(Pages.Principal);
 
                 // Play defined sound
                 clsSounds.fnPlay("Logon");
@@ -143,13 +141,6 @@ namespace StudioMoney.Forms
                 Application.Exit();
                 Environment.Exit(0);
             }
-        }
-
-        void accordionItem_Click(object sender, EventArgs e)
-        {
-            clsSounds.fnPlay("Click");
-            AccordionControlElement element = sender as AccordionControlElement;
-            fnOpenMenuItem(element.Name);
         }
 
         void toolbarButton_Click(object sender, ItemClickEventArgs e)
@@ -172,21 +163,23 @@ namespace StudioMoney.Forms
 
                 switch (sName)
                 {
+                    case "bbiHome":
+                    case "accHome":
 
-                    case "btnBank":
+                        showPage(Pages.Principal);
+                        break;
 
-                        frmBank _frmBank = new frmBank();
-                        _frmBank.MdiParent = this;
+                    case "btnRegisterBank":
+                    case "accRegisterBank":
 
+                        showPage(Pages.Bank);
+                        
                         sOpenedMenuItem = "Bank";
 
                         //spcRight.Visible = true;
 
                         lblCurrentHeader.Text = clsGeneral.fnGetControlCaption(this, "lblCurrentHeader-Bank");
                         lblCurrentHeaderSub.Text = clsGeneral.fnGetControlCaption(this, "lblCurrentHeaderSub-Bank");
-
-                        _frmBank.Dock = DockStyle.Fill;
-                        _frmBank.Show();
 
                         pcbCurrentPicture.ImageLocation = clsGeneral.fnGetObjectPicturePath("Bank-Large");
 
@@ -213,7 +206,6 @@ namespace StudioMoney.Forms
         private void frmMain_Load(object sender, EventArgs e)
         {
             clsSounds.fnPlay("Logon");
-            fnShowHideHome(true);
         }
 
         public void fnGridPopulate(params object[] args)
@@ -238,8 +230,8 @@ namespace StudioMoney.Forms
 
                 switch (sCaption.Substring(3, sCaption.Length - 3))
                 {
-                    case "Bank":
-
+                    case "btnRegisterBank":
+                    case "accRegisterBank":
                         Database objDatabase = new Database();
                         oConnection = (Object)objDatabase.oConnection;
 
@@ -396,7 +388,6 @@ namespace StudioMoney.Forms
                                 break;
 
                             }
-
                     }
 
                     lvwGrid.Columns.Add(ch);
@@ -409,7 +400,6 @@ namespace StudioMoney.Forms
 
                     for (nCurrentRecord = nFirstRecord; nCurrentRecord < nLastRecord + 1; nCurrentRecord++)
                     {
-
                         DataRow dr = dtGrid.Rows[nCurrentRecord];
 
                         ListViewItem lvwItem = new ListViewItem(dr[dtGrid.Columns[0]].ToString());
@@ -418,14 +408,11 @@ namespace StudioMoney.Forms
 
                         for (int iCol = 1; iCol <= dtGrid.Columns.Count - 1; iCol++)
                         {
-
                             // Create other columns
                             ListViewItem.ListViewSubItem lvwSubItem = new ListViewItem.ListViewSubItem(lvwItem, dr[dtGrid.Columns[iCol]].ToString());
                             lvwItem.SubItems.Add(lvwSubItem);
                             lvwGrid.Columns[iCol].Width = -1;
-
                         }
-
                     }
                 }
 
@@ -464,64 +451,7 @@ namespace StudioMoney.Forms
 
                             fnFocusFirstControl(oControl);
                         }
-
                     }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-            }
-        }
-
-        private void fnFocusFirstControl(Control oControl)
-        {
-            try
-            {
-                fnSetEmptyCaption(oControl);
-
-                foreach (Control oChildControl in oControl.Controls)
-                {
-
-                    if (oChildControl.Tag != null)
-                    {
-                        if (oChildControl.Tag.ToString().ToLower() == "first control") { oChildControl.Focus(); }
-                    }
-
-                    if (oChildControl.Controls.Count > 0) { fnFocusFirstControl(oChildControl); }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-            }
-        }
-
-        private void fnSetEmptyCaption(Control oControl)
-        {
-            try
-            {
-                if (oControl.Name.Length > 3)
-                {
-                    if (oControl.Name.Substring(0, 3) == "txt")
-                    {
-                        oControl.Text = "";
-                    }
-                }
-
-                foreach (Control oChildControl in oControl.Controls)
-                {
-                    fnSetEmptyCaption(oChildControl);
                 }
             }
             catch (Exception ex)
@@ -666,6 +596,7 @@ namespace StudioMoney.Forms
                 clsGeneral.fnException(this, ex);
             }
         }
+
         private void ubtSave_Click(object sender, EventArgs e)
         {
             try
@@ -687,12 +618,11 @@ namespace StudioMoney.Forms
                 switch (sOpenedMenuItem)
                 {
 
-                    case "Bank":
+                    case "btnRegisterBank":
+                    case "accRegisterBank":
                         {
 
-                            frmBank _frmBank = (frmBank)this._form;
-
-                            if (fnValidateEmpty(_frmBank.txtCode, _frmBank.txtDescription) == true)
+                            if (fnValidateEmpty(txtBankCode, txtBankDescription) == true)
                             {
                                 Database objDatabase = new Database();
                                 oConnection = (Object)objDatabase.oConnection;
@@ -702,8 +632,8 @@ namespace StudioMoney.Forms
 
                                 // Fill BE class properties
                                 objBE.oConnection = oConnection;
-                                objBE.nBank = Int32.Parse(_frmBank.txtCode.Text);
-                                objBE.sBank = _frmBank.txtDescription.Text;
+                                objBE.nBank = Int32.Parse(txtBankCode.Text);
+                                objBE.sBank = txtBankDescription.Text;
 
                                 // Instantiate Business class
                                 Bank objBusiness = new Bank();
@@ -800,42 +730,6 @@ namespace StudioMoney.Forms
             }
         }
 
-        private bool fnValidateEmpty(params object[] args)
-        {
-            bool bValidate = true;
-
-            try
-            {
-
-                for (int i = 0; i < args.GetLength(0); i++)
-                {
-                    if (args[i].GetType().ToString() == "Infragistics.Win.UltraWinEditors.UltraTextEditor")
-                    {
-                        if (((UltraTextEditor)(args[i])).Text == "")
-                        {
-                            ((UltraTextEditor)(args[i])).Appearance.BackColor = Color.Salmon;
-                            bValidate = false;
-                        }
-                    }
-                }
-
-                if (bValidate == false)
-                {
-                    clsGeneral.fnMessageBox(clsGeneral.fnGetControlCaption(this, "msgMandatoryField"), clsGeneral.fnGetControlCaption(this, "msgMandatoryField.Header"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-            }
-
-            return bValidate;
-        }
-
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             clsSounds.fnPlay("Logout");
@@ -850,13 +744,13 @@ namespace StudioMoney.Forms
                 switch (sOpenedMenuItem)
                 {
 
-                    case "CadastreBank":
-                        {
-                            // Instantiate BE class
-                            GlobalBE.sOpenedItem = "utsMainBank";
-                            break;
-                        }
-
+                    case "btnRegisterBank":
+                    case "accRegisterBank":
+                    {
+                        // Instantiate BE class
+                        GlobalBE.sOpenedItem = "utsMainBank";
+                        break;
+                    }
                 }
 
                 // Instantiate and open the form to search
@@ -881,19 +775,18 @@ namespace StudioMoney.Forms
 
                 switch (sOpenedMenuItem)
                 {
+                    case "btnRegisterBank":
+                    case "accRegisterBank":
+                    {
 
-                    case "CadastreBank":
+                        if (lvwGrid.SelectedItems.Count > 0)
                         {
-
-                            if (lvwGrid.SelectedItems.Count > 0)
-                            {
-                                frmBank _frmBank = (frmBank)this._form;
-
-                                _frmBank.txtCode.Text = lvwGrid.SelectedItems[0].Text;
-                                _frmBank.txtDescription.Text = lvwGrid.SelectedItems[0].SubItems[1].Text;
-                            }
-                            break;
+                            txtBankCode.Text = lvwGrid.SelectedItems[0].Text;
+                            txtBankDescription.Text = lvwGrid.SelectedItems[0].SubItems[1].Text;
                         }
+
+                        break;
+                    }
                 }
             }
             catch (Exception ex)
@@ -948,58 +841,152 @@ namespace StudioMoney.Forms
             lvwGrid_Click(null, null);
         }
 
-        private void fnShowHideHome(bool bShow)
+        private void frmMain_Resize(object sender, EventArgs e)
         {
-            if (bShow == true)
-            {
-                pnlHeader.Visible = false;
-                pnlBottom.Visible = false;
-                //splHorizontal.Visible = false;
+            grdAccountBalance.Width = spnMainLeft.Width - 40;
+            grdAccountBalance.Height = spnMainLeft.Height - 80;
+            grdIncomeExpenses.Width = spnMainRight.Width - 40;
+            grdIncomeExpenses.Height = spnMainRight.Height - 80;
+            grdUpcomingScheduledPostings.Width = spnMainBottom.Width - 40;
+            grdUpcomingScheduledPostings.Height = spnMainBottom.Height - 90;
+        }
 
-                frmHome _frmHome = new frmHome();
-                _frmHome.MdiParent = this;
-                _frmHome.Show();
-                _frmHome.WindowState = FormWindowState.Maximized;
+        private void spnMainBottom_Resize(object sender, EventArgs e)
+        {
+            grdUpcomingScheduledPostings.Width = spnMainBottom.Width - 40;
+            grdUpcomingScheduledPostings.Height = spnMainBottom.Height - 90;
+        }
+
+        private void spnMainLeft_Resize(object sender, EventArgs e)
+        {
+            grdAccountBalance.Width = spnMainLeft.Width - 40;
+            grdAccountBalance.Height = spnMainLeft.Height - 80;
+        }
+
+        private void spnMainRight_Resize(object sender, EventArgs e)
+        {
+            grdIncomeExpenses.Width = spnMainRight.Width - 40;
+            grdIncomeExpenses.Height = spnMainRight.Height - 80;
+        }
+
+        private void accMenu_ElementClick(object sender, ElementClickEventArgs e)
+        {
+            clsSounds.fnPlay("Click");
+            AccordionControlElement element = sender as AccordionControlElement;
+            fnOpenMenuItem(e.Element.Name);
+        }
+
+        private void toolbarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            clsSounds.fnPlay("Click");
+            fnOpenMenuItem(e.Item.Name);
+        }
+
+        private void showPage(Pages nPage)
+        {
+            nvfPages.SelectedPageIndex = (int)nPage;
+
+            foreach (var page in nvfPages.Pages)
+            {
+                if (page.Caption != nvfPages.SelectedPage.Caption)
+                    page.Hide();
+            }
+        }
+
+        private bool fnValidateEmpty(params object[] args)
+        {
+            bool bValidate = true;
+
+            try
+            {
+
+                for (int i = 0; i < args.GetLength(0); i++)
+                {
+                    if (args[i].GetType().ToString() == "Infragistics.Win.UltraWinEditors.UltraTextEditor")
+                    {
+                        if (((UltraTextEditor)(args[i])).Text == "")
+                        {
+                            ((UltraTextEditor)(args[i])).Appearance.BackColor = Color.Salmon;
+                            bValidate = false;
+                        }
+                    }
+                }
+
+                if (bValidate == false)
+                {
+                    clsGeneral.fnMessageBox(clsGeneral.fnGetControlCaption(this, "msgMandatoryField"), clsGeneral.fnGetControlCaption(this, "msgMandatoryField.Header"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Play defined sound
+                clsSounds.fnPlay("Error");
+
+                // Show exception in a message box
+                clsGeneral.fnException(this, ex);
             }
 
-            else
-            {
-                this.ActiveMdiChild.Close();
+            return bValidate;
+        }
 
-                pnlHeader.Visible = true;
-                pnlBottom.Visible = true;
-                //splHorizontal.Visible = true;
+        private void fnFocusFirstControl(Control oControl)
+        {
+            try
+            {
+                fnSetEmptyCaption(oControl);
+
+                foreach (Control oChildControl in oControl.Controls)
+                {
+
+                    if (oChildControl.Tag != null)
+                    {
+                        if (oChildControl.Tag.ToString().ToLower() == "first control") { oChildControl.Focus(); }
+                    }
+
+                    if (oChildControl.Controls.Count > 0) { fnFocusFirstControl(oChildControl); }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Play defined sound
+                clsSounds.fnPlay("Error");
+
+                // Show exception in a message box
+                clsGeneral.fnException(this, ex);
             }
         }
 
-        private void fluentDesignFormContainer1_Click(object sender, EventArgs e)
+        private void fnSetEmptyCaption(Control oControl)
         {
+            try
+            {
+                if (oControl.Name.Length > 3)
+                {
+                    if (oControl.Name.Substring(0, 3) == "txt")
+                    {
+                        oControl.Text = "";
+                    }
+                }
 
+                foreach (Control oChildControl in oControl.Controls)
+                {
+                    fnSetEmptyCaption(oChildControl);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Play defined sound
+                clsSounds.fnPlay("Error");
+
+                // Show exception in a message box
+                clsGeneral.fnException(this, ex);
+            }
         }
 
-        private void dockPanel2_Click(object sender, EventArgs e)
+        private void bbiHome_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-        }
-
-        private void hideContainerRight_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flpNavigation_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pnlThreeButtons_Paint(object sender, PaintEventArgs e)
-        {
-
+            clsSounds.fnPlay("Click");
+            fnOpenMenuItem(e.Item.Name);
         }
     }
 }

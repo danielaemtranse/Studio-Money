@@ -44,24 +44,48 @@ namespace StudioMoney.Forms
             this.rbsStatusBarMessage = new DevExpress.XtraBars.BarStaticItem();
             this.rbsStatusBarDatabase = new DevExpress.XtraBars.BarStaticItem();
             this.rbcToolbar = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.ddbSkinDropDownButton = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            this.btnBank = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCategory = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAccount = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAccountType = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAdditionalUser = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCard = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCardEnterprise = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCurrency = new DevExpress.XtraBars.BarButtonItem();
-            this.btnInterval = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPaymentType = new DevExpress.XtraBars.BarButtonItem();
-            this.btnVendor = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterBank = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterCategory = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterAccount = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterAccountType = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterAdditionalUser = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterCard = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterCardEnterprise = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterCurrency = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterInterval = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterPaymentType = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRegisterVendor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHome = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
+            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+            this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.rbpRegister = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgToolbarRegister = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dfcFluentDesignFormContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.nvfPages = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.nvpPrincipal = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.spnMainRight = new DevExpress.XtraEditors.SidePanel();
+            this.pcbGraphic = new System.Windows.Forms.PictureBox();
+            this.grdIncomeExpenses = new DevExpress.XtraGrid.GridControl();
+            this.cardView2 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.lblMainRight = new System.Windows.Forms.Label();
+            this.spnMainLeft = new DevExpress.XtraEditors.SidePanel();
+            this.pcbAccountsValue = new System.Windows.Forms.PictureBox();
+            this.grdAccountBalance = new DevExpress.XtraGrid.GridControl();
+            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
+            this.lblMainLeft = new System.Windows.Forms.Label();
+            this.spnMainBottom = new DevExpress.XtraEditors.SidePanel();
+            this.grdUpcomingScheduledPostings = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblMainBottom = new System.Windows.Forms.Label();
             this.nvpBank = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.txtBankDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtBankCode = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblCode = new System.Windows.Forms.Label();
             this.splHorizontal = new System.Windows.Forms.Splitter();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
@@ -88,25 +112,47 @@ namespace StudioMoney.Forms
             this.splVertical = new System.Windows.Forms.Splitter();
             this.pnlLeft = new DevExpress.XtraEditors.SidePanel();
             this.accMenu = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.accHome = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accAccounts = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accIncomesExpenses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accScheduled = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accReports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accRegister = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accBank = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accCategory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accAccount = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accAccountType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accAdditionalUser = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accCard = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accCardEnterprise = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accCurrency = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accInterval = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accPaymentType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accVendor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterBank = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterCategory = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterAccount = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterAccountType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterAdditionalUser = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterCard = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterCardEnterprise = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterCurrency = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterInterval = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterPaymentType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accRegisterVendor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.dfcFluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fraFormSkin = new DevExpress.XtraBars.FormAssistant();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbcToolbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             this.dfcFluentDesignFormContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nvfPages)).BeginInit();
             this.nvfPages.SuspendLayout();
+            this.nvpPrincipal.SuspendLayout();
+            this.spnMainRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGraphic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIncomeExpenses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView2)).BeginInit();
+            this.spnMainLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAccountsValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAccountBalance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
+            this.spnMainBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUpcomingScheduledPostings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.nvpBank.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankCode)).BeginInit();
             this.pnlBottom.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             this.pnlThreeButtons.SuspendLayout();
@@ -124,10 +170,10 @@ namespace StudioMoney.Forms
             // 
             this.rbsStatusBar.ItemLinks.Add(this.rbsStatusBarMessage);
             this.rbsStatusBar.ItemLinks.Add(this.rbsStatusBarDatabase);
-            this.rbsStatusBar.Location = new System.Drawing.Point(0, 617);
+            this.rbsStatusBar.Location = new System.Drawing.Point(0, 809);
             this.rbsStatusBar.Name = "rbsStatusBar";
             this.rbsStatusBar.Ribbon = this.rbcToolbar;
-            this.rbsStatusBar.Size = new System.Drawing.Size(977, 25);
+            this.rbsStatusBar.Size = new System.Drawing.Size(1010, 25);
             // 
             // rbsStatusBarMessage
             // 
@@ -146,116 +192,152 @@ namespace StudioMoney.Forms
             // 
             // rbcToolbar
             // 
+            this.rbcToolbar.ApplicationButtonDropDownControl = this.applicationMenu1;
             this.rbcToolbar.ExpandCollapseItem.Id = 0;
             this.rbcToolbar.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.rbcToolbar.ExpandCollapseItem,
             this.rbcToolbar.SearchEditItem,
             this.ddbSkinDropDownButton,
-            this.btnBank,
-            this.btnCategory,
-            this.btnAccount,
-            this.btnAccountType,
-            this.btnAdditionalUser,
-            this.btnCard,
-            this.btnCardEnterprise,
-            this.btnCurrency,
-            this.btnInterval,
-            this.btnPaymentType,
-            this.btnVendor,
+            this.btnRegisterBank,
+            this.btnRegisterCategory,
+            this.btnRegisterAccount,
+            this.btnRegisterAccountType,
+            this.btnRegisterAdditionalUser,
+            this.btnRegisterCard,
+            this.btnRegisterCardEnterprise,
+            this.btnRegisterCurrency,
+            this.btnRegisterInterval,
+            this.btnRegisterPaymentType,
+            this.btnRegisterVendor,
             this.rbsStatusBarMessage,
-            this.rbsStatusBarDatabase});
+            this.rbsStatusBarDatabase,
+            this.bbiHome});
             this.rbcToolbar.Location = new System.Drawing.Point(0, 30);
-            this.rbcToolbar.MaxItemId = 24;
+            this.rbcToolbar.MaxItemId = 25;
+            this.rbcToolbar.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.rbcToolbar.Name = "rbcToolbar";
+            this.rbcToolbar.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
+            this.ribbonPageCategory1,
+            this.ribbonPageCategory2});
+            this.rbcToolbar.PageHeaderItemLinks.Add(this.bbiHome);
             this.rbcToolbar.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpRegister});
             this.rbcToolbar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
-            this.rbcToolbar.Size = new System.Drawing.Size(977, 114);
+            this.rbcToolbar.Size = new System.Drawing.Size(1010, 114);
             this.rbcToolbar.StatusBar = this.rbsStatusBar;
             this.rbcToolbar.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            // 
+            // applicationMenu1
+            // 
+            this.applicationMenu1.Name = "applicationMenu1";
+            this.applicationMenu1.Ribbon = this.rbcToolbar;
             // 
             // ddbSkinDropDownButton
             // 
             this.ddbSkinDropDownButton.Id = 23;
             this.ddbSkinDropDownButton.Name = "ddbSkinDropDownButton";
             // 
-            // btnBank
+            // btnRegisterBank
             // 
-            this.btnBank.Caption = "Bank";
-            this.btnBank.Id = 7;
-            this.btnBank.Name = "btnBank";
-            this.btnBank.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterBank.Caption = "Bank";
+            this.btnRegisterBank.Id = 7;
+            this.btnRegisterBank.Name = "btnRegisterBank";
+            this.btnRegisterBank.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnCategory
+            // btnRegisterCategory
             // 
-            this.btnCategory.Caption = "Category";
-            this.btnCategory.Id = 8;
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterCategory.Caption = "Category";
+            this.btnRegisterCategory.Id = 8;
+            this.btnRegisterCategory.Name = "btnRegisterCategory";
+            this.btnRegisterCategory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnAccount
+            // btnRegisterAccount
             // 
-            this.btnAccount.Caption = "Account";
-            this.btnAccount.Id = 9;
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterAccount.Caption = "Account";
+            this.btnRegisterAccount.Id = 9;
+            this.btnRegisterAccount.Name = "btnRegisterAccount";
+            this.btnRegisterAccount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnAccountType
+            // btnRegisterAccountType
             // 
-            this.btnAccountType.Caption = "Account Type";
-            this.btnAccountType.Id = 10;
-            this.btnAccountType.Name = "btnAccountType";
-            this.btnAccountType.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterAccountType.Caption = "Account Type";
+            this.btnRegisterAccountType.Id = 10;
+            this.btnRegisterAccountType.Name = "btnRegisterAccountType";
+            this.btnRegisterAccountType.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnAdditionalUser
+            // btnRegisterAdditionalUser
             // 
-            this.btnAdditionalUser.AllowAllUp = true;
-            this.btnAdditionalUser.Caption = "Additional User";
-            this.btnAdditionalUser.Id = 11;
-            this.btnAdditionalUser.Name = "btnAdditionalUser";
-            this.btnAdditionalUser.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterAdditionalUser.AllowAllUp = true;
+            this.btnRegisterAdditionalUser.Caption = "Additional User";
+            this.btnRegisterAdditionalUser.Id = 11;
+            this.btnRegisterAdditionalUser.Name = "btnRegisterAdditionalUser";
+            this.btnRegisterAdditionalUser.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnCard
+            // btnRegisterCard
             // 
-            this.btnCard.Caption = "Card";
-            this.btnCard.Id = 12;
-            this.btnCard.Name = "btnCard";
-            this.btnCard.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterCard.Caption = "Card";
+            this.btnRegisterCard.Id = 12;
+            this.btnRegisterCard.Name = "btnRegisterCard";
+            this.btnRegisterCard.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnCardEnterprise
+            // btnRegisterCardEnterprise
             // 
-            this.btnCardEnterprise.Caption = "Card Enterprise";
-            this.btnCardEnterprise.Id = 13;
-            this.btnCardEnterprise.Name = "btnCardEnterprise";
-            this.btnCardEnterprise.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterCardEnterprise.Caption = "Card Enterprise";
+            this.btnRegisterCardEnterprise.Id = 13;
+            this.btnRegisterCardEnterprise.Name = "btnRegisterCardEnterprise";
+            this.btnRegisterCardEnterprise.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnCurrency
+            // btnRegisterCurrency
             // 
-            this.btnCurrency.Caption = "Currency";
-            this.btnCurrency.Id = 14;
-            this.btnCurrency.Name = "btnCurrency";
-            this.btnCurrency.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterCurrency.Caption = "Currency";
+            this.btnRegisterCurrency.Id = 14;
+            this.btnRegisterCurrency.Name = "btnRegisterCurrency";
+            this.btnRegisterCurrency.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnInterval
+            // btnRegisterInterval
             // 
-            this.btnInterval.Caption = "Interval";
-            this.btnInterval.Id = 15;
-            this.btnInterval.Name = "btnInterval";
-            this.btnInterval.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterInterval.Caption = "Interval";
+            this.btnRegisterInterval.Id = 15;
+            this.btnRegisterInterval.Name = "btnRegisterInterval";
+            this.btnRegisterInterval.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnPaymentType
+            // btnRegisterPaymentType
             // 
-            this.btnPaymentType.Caption = "Payment Type";
-            this.btnPaymentType.Id = 16;
-            this.btnPaymentType.Name = "btnPaymentType";
-            this.btnPaymentType.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterPaymentType.Caption = "Payment Type";
+            this.btnRegisterPaymentType.Id = 16;
+            this.btnRegisterPaymentType.Name = "btnRegisterPaymentType";
+            this.btnRegisterPaymentType.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // btnVendor
+            // btnRegisterVendor
             // 
-            this.btnVendor.Caption = "Vendor";
-            this.btnVendor.Id = 17;
-            this.btnVendor.Name = "btnVendor";
-            this.btnVendor.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRegisterVendor.Caption = "Vendor";
+            this.btnRegisterVendor.Id = 17;
+            this.btnRegisterVendor.Name = "btnRegisterVendor";
+            this.btnRegisterVendor.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // bbiHome
+            // 
+            this.bbiHome.Caption = "Home";
+            this.bbiHome.Hint = "Home";
+            this.bbiHome.Id = 24;
+            this.bbiHome.ImageOptions.Image = global::StudioMoney.Properties.Resources.Home;
+            this.bbiHome.Name = "bbiHome";
+            this.bbiHome.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bbiHome.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHome_ItemClick);
+            // 
+            // ribbonMiniToolbar1
+            // 
+            this.ribbonMiniToolbar1.ParentControl = this;
+            // 
+            // ribbonPageCategory1
+            // 
+            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
+            // 
+            // ribbonPageCategory2
+            // 
+            this.ribbonPageCategory2.Name = "ribbonPageCategory2";
+            this.ribbonPageCategory2.Text = "ribbonPageCategory2";
             // 
             // rbpRegister
             // 
@@ -266,17 +348,17 @@ namespace StudioMoney.Forms
             // 
             // rpgToolbarRegister
             // 
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnBank);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnCategory);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnAccount);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnAccountType);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnAdditionalUser);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnCard);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnCardEnterprise);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnCurrency);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnInterval);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnPaymentType);
-            this.rpgToolbarRegister.ItemLinks.Add(this.btnVendor);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterBank);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterCategory);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterAccount);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterAccountType);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterAdditionalUser);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterCard);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterCardEnterprise);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterCurrency);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterInterval);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterPaymentType);
+            this.rpgToolbarRegister.ItemLinks.Add(this.btnRegisterVendor);
             this.rpgToolbarRegister.Name = "rpgToolbarRegister";
             // 
             // dfcFluentDesignFormContainer
@@ -287,9 +369,8 @@ namespace StudioMoney.Forms
             this.dfcFluentDesignFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dfcFluentDesignFormContainer.Location = new System.Drawing.Point(0, 144);
             this.dfcFluentDesignFormContainer.Name = "dfcFluentDesignFormContainer";
-            this.dfcFluentDesignFormContainer.Size = new System.Drawing.Size(977, 473);
+            this.dfcFluentDesignFormContainer.Size = new System.Drawing.Size(1010, 665);
             this.dfcFluentDesignFormContainer.TabIndex = 77;
-            this.dfcFluentDesignFormContainer.Click += new System.EventHandler(this.fluentDesignFormContainer1_Click);
             // 
             // nvfPages
             // 
@@ -302,30 +383,225 @@ namespace StudioMoney.Forms
             this.nvpPrincipal,
             this.nvpBank});
             this.nvfPages.SelectedPage = this.nvpBank;
-            this.nvfPages.Size = new System.Drawing.Size(800, 473);
+            this.nvfPages.Size = new System.Drawing.Size(833, 665);
             this.nvfPages.TabIndex = 53;
-            this.nvfPages.Text = "navigationFrame1";
             // 
             // nvpPrincipal
             // 
+            this.nvpPrincipal.Controls.Add(this.spnMainRight);
+            this.nvpPrincipal.Controls.Add(this.spnMainLeft);
+            this.nvpPrincipal.Controls.Add(this.spnMainBottom);
             this.nvpPrincipal.Name = "nvpPrincipal";
-            this.nvpPrincipal.Size = new System.Drawing.Size(800, 473);
+            this.nvpPrincipal.Size = new System.Drawing.Size(833, 665);
+            // 
+            // spnMainRight
+            // 
+            this.spnMainRight.Controls.Add(this.pcbGraphic);
+            this.spnMainRight.Controls.Add(this.grdIncomeExpenses);
+            this.spnMainRight.Controls.Add(this.lblMainRight);
+            this.spnMainRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spnMainRight.Location = new System.Drawing.Point(350, 0);
+            this.spnMainRight.Name = "spnMainRight";
+            this.spnMainRight.Size = new System.Drawing.Size(483, 333);
+            this.spnMainRight.TabIndex = 2;
+            this.spnMainRight.Resize += new System.EventHandler(this.spnMainRight_Resize);
+            // 
+            // pcbGraphic
+            // 
+            this.pcbGraphic.BackColor = System.Drawing.Color.Transparent;
+            this.pcbGraphic.Image = ((System.Drawing.Image)(resources.GetObject("pcbGraphic.Image")));
+            this.pcbGraphic.Location = new System.Drawing.Point(22, 16);
+            this.pcbGraphic.Name = "pcbGraphic";
+            this.pcbGraphic.Size = new System.Drawing.Size(36, 34);
+            this.pcbGraphic.TabIndex = 4;
+            this.pcbGraphic.TabStop = false;
+            // 
+            // grdIncomeExpenses
+            // 
+            this.grdIncomeExpenses.Location = new System.Drawing.Point(22, 58);
+            this.grdIncomeExpenses.MainView = this.cardView2;
+            this.grdIncomeExpenses.MenuManager = this.rbcToolbar;
+            this.grdIncomeExpenses.Name = "grdIncomeExpenses";
+            this.grdIncomeExpenses.Size = new System.Drawing.Size(402, 245);
+            this.grdIncomeExpenses.TabIndex = 3;
+            this.grdIncomeExpenses.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.cardView2});
+            // 
+            // cardView2
+            // 
+            this.cardView2.GridControl = this.grdIncomeExpenses;
+            this.cardView2.Name = "cardView2";
+            // 
+            // lblMainRight
+            // 
+            this.lblMainRight.AutoSize = true;
+            this.lblMainRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainRight.Location = new System.Drawing.Point(80, 20);
+            this.lblMainRight.Name = "lblMainRight";
+            this.lblMainRight.Size = new System.Drawing.Size(258, 18);
+            this.lblMainRight.TabIndex = 0;
+            this.lblMainRight.Text = "Income x Expenses for Current Month";
+            // 
+            // spnMainLeft
+            // 
+            this.spnMainLeft.Controls.Add(this.pcbAccountsValue);
+            this.spnMainLeft.Controls.Add(this.grdAccountBalance);
+            this.spnMainLeft.Controls.Add(this.lblMainLeft);
+            this.spnMainLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.spnMainLeft.Location = new System.Drawing.Point(0, 0);
+            this.spnMainLeft.Name = "spnMainLeft";
+            this.spnMainLeft.Size = new System.Drawing.Size(350, 333);
+            this.spnMainLeft.TabIndex = 1;
+            this.spnMainLeft.Resize += new System.EventHandler(this.spnMainLeft_Resize);
+            // 
+            // pcbAccountsValue
+            // 
+            this.pcbAccountsValue.BackColor = System.Drawing.Color.Transparent;
+            this.pcbAccountsValue.Image = ((System.Drawing.Image)(resources.GetObject("pcbAccountsValue.Image")));
+            this.pcbAccountsValue.Location = new System.Drawing.Point(21, 16);
+            this.pcbAccountsValue.Name = "pcbAccountsValue";
+            this.pcbAccountsValue.Size = new System.Drawing.Size(36, 34);
+            this.pcbAccountsValue.TabIndex = 6;
+            this.pcbAccountsValue.TabStop = false;
+            // 
+            // grdAccountBalance
+            // 
+            this.grdAccountBalance.Location = new System.Drawing.Point(21, 58);
+            this.grdAccountBalance.MainView = this.cardView1;
+            this.grdAccountBalance.MenuManager = this.rbcToolbar;
+            this.grdAccountBalance.Name = "grdAccountBalance";
+            this.grdAccountBalance.Size = new System.Drawing.Size(309, 245);
+            this.grdAccountBalance.TabIndex = 2;
+            this.grdAccountBalance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.cardView1});
+            // 
+            // cardView1
+            // 
+            this.cardView1.GridControl = this.grdAccountBalance;
+            this.cardView1.Name = "cardView1";
+            // 
+            // lblMainLeft
+            // 
+            this.lblMainLeft.AutoSize = true;
+            this.lblMainLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainLeft.Location = new System.Drawing.Point(66, 20);
+            this.lblMainLeft.Name = "lblMainLeft";
+            this.lblMainLeft.Size = new System.Drawing.Size(119, 18);
+            this.lblMainLeft.TabIndex = 0;
+            this.lblMainLeft.Text = "Account Balance";
+            // 
+            // spnMainBottom
+            // 
+            this.spnMainBottom.Controls.Add(this.grdUpcomingScheduledPostings);
+            this.spnMainBottom.Controls.Add(this.pictureBox2);
+            this.spnMainBottom.Controls.Add(this.lblMainBottom);
+            this.spnMainBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.spnMainBottom.Location = new System.Drawing.Point(0, 333);
+            this.spnMainBottom.Name = "spnMainBottom";
+            this.spnMainBottom.Size = new System.Drawing.Size(833, 332);
+            this.spnMainBottom.TabIndex = 0;
+            this.spnMainBottom.Resize += new System.EventHandler(this.spnMainBottom_Resize);
+            // 
+            // grdUpcomingScheduledPostings
+            // 
+            this.grdUpcomingScheduledPostings.Location = new System.Drawing.Point(21, 71);
+            this.grdUpcomingScheduledPostings.MainView = this.gridView2;
+            this.grdUpcomingScheduledPostings.MenuManager = this.rbcToolbar;
+            this.grdUpcomingScheduledPostings.Name = "grdUpcomingScheduledPostings";
+            this.grdUpcomingScheduledPostings.Size = new System.Drawing.Size(790, 212);
+            this.grdUpcomingScheduledPostings.TabIndex = 4;
+            this.grdUpcomingScheduledPostings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.grdUpcomingScheduledPostings;
+            this.gridView2.Name = "gridView2";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::StudioMoney.Properties.Resources.payment_history_;
+            this.pictureBox2.Location = new System.Drawing.Point(19, 16);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblMainBottom
+            // 
+            this.lblMainBottom.AutoSize = true;
+            this.lblMainBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainBottom.Location = new System.Drawing.Point(66, 27);
+            this.lblMainBottom.Name = "lblMainBottom";
+            this.lblMainBottom.Size = new System.Drawing.Size(211, 18);
+            this.lblMainBottom.TabIndex = 2;
+            this.lblMainBottom.Text = "Upcoming Scheduled Postings";
             // 
             // nvpBank
             // 
+            this.nvpBank.Controls.Add(this.txtBankDescription);
+            this.nvpBank.Controls.Add(this.lblDescription);
+            this.nvpBank.Controls.Add(this.txtBankCode);
+            this.nvpBank.Controls.Add(this.lblCode);
             this.nvpBank.Controls.Add(this.splHorizontal);
             this.nvpBank.Controls.Add(this.pnlBottom);
             this.nvpBank.Controls.Add(this.pnlHeader);
             this.nvpBank.Name = "nvpBank";
-            this.nvpBank.Size = new System.Drawing.Size(800, 473);
+            this.nvpBank.Size = new System.Drawing.Size(833, 665);
+            // 
+            // txtBankDescription
+            // 
+            this.txtBankDescription.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007;
+            this.txtBankDescription.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
+            this.txtBankDescription.Location = new System.Drawing.Point(18, 157);
+            this.txtBankDescription.MaxLength = 33;
+            this.txtBankDescription.Name = "txtBankDescription";
+            this.txtBankDescription.ShowOverflowIndicator = true;
+            this.txtBankDescription.Size = new System.Drawing.Size(626, 24);
+            this.txtBankDescription.TabIndex = 76;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
+            this.lblDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblDescription.Location = new System.Drawing.Point(15, 136);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(74, 18);
+            this.lblDescription.TabIndex = 78;
+            this.lblDescription.Text = "Description";
+            // 
+            // txtBankCode
+            // 
+            this.txtBankCode.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007;
+            this.txtBankCode.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
+            this.txtBankCode.Location = new System.Drawing.Point(18, 108);
+            this.txtBankCode.MaxLength = 33;
+            this.txtBankCode.Name = "txtBankCode";
+            this.txtBankCode.ShowOverflowIndicator = true;
+            this.txtBankCode.Size = new System.Drawing.Size(92, 24);
+            this.txtBankCode.TabIndex = 75;
+            this.txtBankCode.Tag = "First Control";
+            // 
+            // lblCode
+            // 
+            this.lblCode.AutoSize = true;
+            this.lblCode.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
+            this.lblCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCode.Location = new System.Drawing.Point(15, 87);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(37, 18);
+            this.lblCode.TabIndex = 77;
+            this.lblCode.Text = "Code";
             // 
             // splHorizontal
             // 
             this.splHorizontal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splHorizontal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splHorizontal.Location = new System.Drawing.Point(0, 270);
+            this.splHorizontal.Location = new System.Drawing.Point(0, 462);
             this.splHorizontal.Name = "splHorizontal";
-            this.splHorizontal.Size = new System.Drawing.Size(800, 3);
+            this.splHorizontal.Size = new System.Drawing.Size(833, 3);
             this.splHorizontal.TabIndex = 74;
             this.splHorizontal.TabStop = false;
             // 
@@ -335,9 +611,9 @@ namespace StudioMoney.Forms
             this.pnlBottom.Controls.Add(this.pnlThreeButtons);
             this.pnlBottom.Controls.Add(this.flpNavigation);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 273);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 465);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(800, 200);
+            this.pnlBottom.Size = new System.Drawing.Size(833, 200);
             this.pnlBottom.TabIndex = 73;
             // 
             // pnlGrid
@@ -346,7 +622,7 @@ namespace StudioMoney.Forms
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 41);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(800, 127);
+            this.pnlGrid.Size = new System.Drawing.Size(833, 127);
             this.pnlGrid.TabIndex = 58;
             // 
             // lvwGrid
@@ -360,7 +636,7 @@ namespace StudioMoney.Forms
             this.lvwGrid.MultiSelect = false;
             this.lvwGrid.Name = "lvwGrid";
             this.lvwGrid.Scrollable = false;
-            this.lvwGrid.Size = new System.Drawing.Size(800, 127);
+            this.lvwGrid.Size = new System.Drawing.Size(833, 127);
             this.lvwGrid.TabIndex = 57;
             this.lvwGrid.UseCompatibleStateImageBehavior = false;
             this.lvwGrid.View = System.Windows.Forms.View.Details;
@@ -373,7 +649,7 @@ namespace StudioMoney.Forms
             this.pnlThreeButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlThreeButtons.Location = new System.Drawing.Point(0, 0);
             this.pnlThreeButtons.Name = "pnlThreeButtons";
-            this.pnlThreeButtons.Size = new System.Drawing.Size(800, 41);
+            this.pnlThreeButtons.Size = new System.Drawing.Size(833, 41);
             this.pnlThreeButtons.TabIndex = 57;
             // 
             // pnlSearchUndoButtons
@@ -392,7 +668,7 @@ namespace StudioMoney.Forms
             this.ubtUndo.Appearance = appearance1;
             this.ubtUndo.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtUndo.ImageSize = new System.Drawing.Size(20, 20);
-            this.ubtUndo.Location = new System.Drawing.Point(6, 2);
+            this.ubtUndo.Location = new System.Drawing.Point(115, 2);
             this.ubtUndo.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ubtUndo.Name = "ubtUndo";
             this.ubtUndo.Padding = new System.Drawing.Size(7, 5);
@@ -407,7 +683,7 @@ namespace StudioMoney.Forms
             this.ubtSearch.Appearance = appearance2;
             this.ubtSearch.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtSearch.ImageSize = new System.Drawing.Size(20, 20);
-            this.ubtSearch.Location = new System.Drawing.Point(6, 4);
+            this.ubtSearch.Location = new System.Drawing.Point(6, 2);
             this.ubtSearch.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ubtSearch.Name = "ubtSearch";
             this.ubtSearch.Padding = new System.Drawing.Size(7, 5);
@@ -421,7 +697,7 @@ namespace StudioMoney.Forms
             this.pnlNewDeleteSaveButtons.Controls.Add(this.ubtDelete);
             this.pnlNewDeleteSaveButtons.Controls.Add(this.ubtNew);
             this.pnlNewDeleteSaveButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlNewDeleteSaveButtons.Location = new System.Drawing.Point(318, 0);
+            this.pnlNewDeleteSaveButtons.Location = new System.Drawing.Point(351, 0);
             this.pnlNewDeleteSaveButtons.Name = "pnlNewDeleteSaveButtons";
             this.pnlNewDeleteSaveButtons.Padding = new System.Windows.Forms.Padding(5);
             this.pnlNewDeleteSaveButtons.Size = new System.Drawing.Size(480, 39);
@@ -481,7 +757,7 @@ namespace StudioMoney.Forms
             this.flpNavigation.Location = new System.Drawing.Point(0, 168);
             this.flpNavigation.Name = "flpNavigation";
             this.flpNavigation.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.flpNavigation.Size = new System.Drawing.Size(800, 32);
+            this.flpNavigation.Size = new System.Drawing.Size(833, 32);
             this.flpNavigation.TabIndex = 55;
             // 
             // ubtLast
@@ -492,7 +768,7 @@ namespace StudioMoney.Forms
             this.ubtLast.Appearance = appearance6;
             this.ubtLast.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtLast.ImageSize = new System.Drawing.Size(10, 12);
-            this.ubtLast.Location = new System.Drawing.Point(753, 3);
+            this.ubtLast.Location = new System.Drawing.Point(786, 3);
             this.ubtLast.Name = "ubtLast";
             this.ubtLast.Size = new System.Drawing.Size(32, 24);
             this.ubtLast.TabIndex = 3;
@@ -505,7 +781,7 @@ namespace StudioMoney.Forms
             this.ubtNext.Appearance = appearance7;
             this.ubtNext.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtNext.ImageSize = new System.Drawing.Size(10, 12);
-            this.ubtNext.Location = new System.Drawing.Point(715, 3);
+            this.ubtNext.Location = new System.Drawing.Point(748, 3);
             this.ubtNext.Name = "ubtNext";
             this.ubtNext.Size = new System.Drawing.Size(32, 24);
             this.ubtNext.TabIndex = 2;
@@ -515,7 +791,7 @@ namespace StudioMoney.Forms
             this.lblNavigator.AutoSize = true;
             this.lblNavigator.BackColor = System.Drawing.Color.Transparent;
             this.lblNavigator.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNavigator.Location = new System.Drawing.Point(675, 0);
+            this.lblNavigator.Location = new System.Drawing.Point(708, 0);
             this.lblNavigator.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.lblNavigator.Name = "lblNavigator";
             this.lblNavigator.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
@@ -525,7 +801,7 @@ namespace StudioMoney.Forms
             // 
             // txtCurrentRecord
             // 
-            this.txtCurrentRecord.Location = new System.Drawing.Point(635, 5);
+            this.txtCurrentRecord.Location = new System.Drawing.Point(668, 5);
             this.txtCurrentRecord.Margin = new System.Windows.Forms.Padding(5);
             this.txtCurrentRecord.Name = "txtCurrentRecord";
             this.txtCurrentRecord.Size = new System.Drawing.Size(35, 20);
@@ -540,7 +816,7 @@ namespace StudioMoney.Forms
             this.ubtPrevious.Enabled = false;
             this.ubtPrevious.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtPrevious.ImageSize = new System.Drawing.Size(10, 12);
-            this.ubtPrevious.Location = new System.Drawing.Point(595, 3);
+            this.ubtPrevious.Location = new System.Drawing.Point(628, 3);
             this.ubtPrevious.Name = "ubtPrevious";
             this.ubtPrevious.Size = new System.Drawing.Size(32, 24);
             this.ubtPrevious.TabIndex = 1;
@@ -554,7 +830,7 @@ namespace StudioMoney.Forms
             this.ubtFirst.Enabled = false;
             this.ubtFirst.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ubtFirst.ImageSize = new System.Drawing.Size(10, 12);
-            this.ubtFirst.Location = new System.Drawing.Point(557, 3);
+            this.ubtFirst.Location = new System.Drawing.Point(590, 3);
             this.ubtFirst.Name = "ubtFirst";
             this.ubtFirst.Size = new System.Drawing.Size(32, 24);
             this.ubtFirst.TabIndex = 0;
@@ -570,7 +846,7 @@ namespace StudioMoney.Forms
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(800, 77);
+            this.pnlHeader.Size = new System.Drawing.Size(833, 77);
             this.pnlHeader.TabIndex = 52;
             // 
             // lblCurrentHeader
@@ -608,7 +884,7 @@ namespace StudioMoney.Forms
             this.splVertical.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splVertical.Location = new System.Drawing.Point(174, 0);
             this.splVertical.Name = "splVertical";
-            this.splVertical.Size = new System.Drawing.Size(3, 473);
+            this.splVertical.Size = new System.Drawing.Size(3, 665);
             this.splVertical.TabIndex = 52;
             this.splVertical.TabStop = false;
             // 
@@ -618,7 +894,7 @@ namespace StudioMoney.Forms
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(174, 473);
+            this.pnlLeft.Size = new System.Drawing.Size(174, 665);
             this.pnlLeft.TabIndex = 2;
             this.pnlLeft.Text = "pnlLeft";
             // 
@@ -626,120 +902,159 @@ namespace StudioMoney.Forms
             // 
             this.accMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accMenu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accHome,
+            this.accAccounts,
+            this.accIncomesExpenses,
+            this.accScheduled,
+            this.accReports,
             this.accRegister});
             this.accMenu.Location = new System.Drawing.Point(0, 0);
             this.accMenu.Name = "accMenu";
             this.accMenu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            this.accMenu.Size = new System.Drawing.Size(173, 473);
+            this.accMenu.Size = new System.Drawing.Size(173, 665);
             this.accMenu.TabIndex = 23;
             this.accMenu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            this.accMenu.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accMenu_ElementClick);
+            // 
+            // accHome
+            // 
+            this.accHome.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accHome.Name = "accHome";
+            this.accHome.Text = "Home";
+            // 
+            // accAccounts
+            // 
+            this.accAccounts.Expanded = true;
+            this.accAccounts.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accAccounts.Name = "accAccounts";
+            this.accAccounts.Text = "Accounts";
+            // 
+            // accIncomesExpenses
+            // 
+            this.accIncomesExpenses.Expanded = true;
+            this.accIncomesExpenses.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accIncomesExpenses.Name = "accIncomesExpenses";
+            this.accIncomesExpenses.Text = "Incomes & Expenses";
+            // 
+            // accScheduled
+            // 
+            this.accScheduled.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accScheduled.Name = "accScheduled";
+            this.accScheduled.Text = "Scheduled";
+            // 
+            // accReports
+            // 
+            this.accReports.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accReports.Name = "accReports";
+            this.accReports.Text = "Reports";
             // 
             // accRegister
             // 
             this.accRegister.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accBank,
-            this.accCategory,
-            this.accAccount,
-            this.accAccountType,
-            this.accAdditionalUser,
-            this.accCard,
-            this.accCardEnterprise,
-            this.accCurrency,
-            this.accInterval,
-            this.accPaymentType,
-            this.accVendor});
-            this.accRegister.Expanded = true;
-            this.accRegister.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
+            this.accRegisterBank,
+            this.accRegisterCategory,
+            this.accRegisterAccount,
+            this.accRegisterAccountType,
+            this.accRegisterAdditionalUser,
+            this.accRegisterCard,
+            this.accRegisterCardEnterprise,
+            this.accRegisterCurrency,
+            this.accRegisterInterval,
+            this.accRegisterPaymentType,
+            this.accRegisterVendor});
             this.accRegister.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
             this.accRegister.Name = "accRegister";
             this.accRegister.Text = "Register";
             // 
-            // accBank
+            // accRegisterBank
             // 
-            this.accBank.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
-            this.accBank.Name = "accBank";
-            this.accBank.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accBank.Text = "Bank";
+            this.accRegisterBank.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accRegisterBank.Name = "accRegisterBank";
+            this.accRegisterBank.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterBank.Text = "Bank";
             // 
-            // accCategory
+            // accRegisterCategory
             // 
-            this.accCategory.Name = "accCategory";
-            this.accCategory.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accCategory.Text = "Category";
+            this.accRegisterCategory.Name = "accRegisterCategory";
+            this.accRegisterCategory.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterCategory.Text = "Category";
             // 
-            // accAccount
+            // accRegisterAccount
             // 
-            this.accAccount.Name = "accAccount";
-            this.accAccount.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accAccount.Text = "Account";
+            this.accRegisterAccount.Name = "accRegisterAccount";
+            this.accRegisterAccount.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterAccount.Text = "Account";
             // 
-            // accAccountType
+            // accRegisterAccountType
             // 
-            this.accAccountType.Name = "accAccountType";
-            this.accAccountType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accAccountType.Text = "Account Type";
+            this.accRegisterAccountType.Name = "accRegisterAccountType";
+            this.accRegisterAccountType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterAccountType.Text = "Account Type";
             // 
-            // accAdditionalUser
+            // accRegisterAdditionalUser
             // 
-            this.accAdditionalUser.Name = "accAdditionalUser";
-            this.accAdditionalUser.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accAdditionalUser.Text = "AdditionalUser";
+            this.accRegisterAdditionalUser.Name = "accRegisterAdditionalUser";
+            this.accRegisterAdditionalUser.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterAdditionalUser.Text = "AdditionalUser";
             // 
-            // accCard
+            // accRegisterCard
             // 
-            this.accCard.Name = "accCard";
-            this.accCard.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accCard.Text = "Card";
+            this.accRegisterCard.Name = "accRegisterCard";
+            this.accRegisterCard.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterCard.Text = "Card";
             // 
-            // accCardEnterprise
+            // accRegisterCardEnterprise
             // 
-            this.accCardEnterprise.Name = "accCardEnterprise";
-            this.accCardEnterprise.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accCardEnterprise.Text = "Card Enterprise";
+            this.accRegisterCardEnterprise.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accRegisterCardEnterprise.Name = "accRegisterCardEnterprise";
+            this.accRegisterCardEnterprise.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterCardEnterprise.Text = "Card Enterprise";
             // 
-            // accCurrency
+            // accRegisterCurrency
             // 
-            this.accCurrency.Name = "accCurrency";
-            this.accCurrency.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accCurrency.Text = "Currency";
+            this.accRegisterCurrency.Name = "accRegisterCurrency";
+            this.accRegisterCurrency.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterCurrency.Text = "Currency";
             // 
-            // accInterval
+            // accRegisterInterval
             // 
-            this.accInterval.Name = "accInterval";
-            this.accInterval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accInterval.Text = "Interval";
+            this.accRegisterInterval.Name = "accRegisterInterval";
+            this.accRegisterInterval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterInterval.Text = "Interval";
             // 
-            // accPaymentType
+            // accRegisterPaymentType
             // 
-            this.accPaymentType.Name = "accPaymentType";
-            this.accPaymentType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accPaymentType.Text = "Payment Type";
+            this.accRegisterPaymentType.Name = "accRegisterPaymentType";
+            this.accRegisterPaymentType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterPaymentType.Text = "Payment Type";
             // 
-            // accVendor
+            // accRegisterVendor
             // 
-            this.accVendor.Name = "accVendor";
-            this.accVendor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accVendor.Text = "Vendor";
+            this.accRegisterVendor.Name = "accRegisterVendor";
+            this.accRegisterVendor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accRegisterVendor.Text = "Vendor";
             // 
             // dfcFluentDesignFormControl
             // 
             this.dfcFluentDesignFormControl.FluentDesignForm = this;
             this.dfcFluentDesignFormControl.Location = new System.Drawing.Point(0, 0);
             this.dfcFluentDesignFormControl.Name = "dfcFluentDesignFormControl";
-            this.dfcFluentDesignFormControl.Size = new System.Drawing.Size(977, 30);
+            this.dfcFluentDesignFormControl.Size = new System.Drawing.Size(1010, 30);
             this.dfcFluentDesignFormControl.TabIndex = 78;
             this.dfcFluentDesignFormControl.TabStop = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 642);
+            this.ClientSize = new System.Drawing.Size(1010, 834);
             this.ControlContainer = this.dfcFluentDesignFormContainer;
             this.Controls.Add(this.dfcFluentDesignFormContainer);
             this.Controls.Add(this.rbsStatusBar);
@@ -752,11 +1067,32 @@ namespace StudioMoney.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.frmMain_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.rbcToolbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
             this.dfcFluentDesignFormContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nvfPages)).EndInit();
             this.nvfPages.ResumeLayout(false);
+            this.nvpPrincipal.ResumeLayout(false);
+            this.spnMainRight.ResumeLayout(false);
+            this.spnMainRight.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGraphic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIncomeExpenses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView2)).EndInit();
+            this.spnMainLeft.ResumeLayout(false);
+            this.spnMainLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAccountsValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAccountBalance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
+            this.spnMainBottom.ResumeLayout(false);
+            this.spnMainBottom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUpcomingScheduledPostings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.nvpBank.ResumeLayout(false);
+            this.nvpBank.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBankCode)).EndInit();
             this.pnlBottom.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             this.pnlThreeButtons.ResumeLayout(false);
@@ -782,17 +1118,17 @@ namespace StudioMoney.Forms
         private DevExpress.XtraBars.FormAssistant fraFormSkin;
         private DevExpress.XtraBars.Ribbon.RibbonControl rbcToolbar;
         private DevExpress.XtraBars.SkinDropDownButtonItem ddbSkinDropDownButton;
-        private DevExpress.XtraBars.BarButtonItem btnBank;
-        private DevExpress.XtraBars.BarButtonItem btnCategory;
-        private DevExpress.XtraBars.BarButtonItem btnAccount;
-        private DevExpress.XtraBars.BarButtonItem btnAccountType;
-        private DevExpress.XtraBars.BarButtonItem btnAdditionalUser;
-        private DevExpress.XtraBars.BarButtonItem btnCard;
-        private DevExpress.XtraBars.BarButtonItem btnCardEnterprise;
-        private DevExpress.XtraBars.BarButtonItem btnCurrency;
-        private DevExpress.XtraBars.BarButtonItem btnInterval;
-        private DevExpress.XtraBars.BarButtonItem btnPaymentType;
-        private DevExpress.XtraBars.BarButtonItem btnVendor;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterBank;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterCategory;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterAccount;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterAccountType;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterAdditionalUser;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterCard;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterCardEnterprise;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterCurrency;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterInterval;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterPaymentType;
+        private DevExpress.XtraBars.BarButtonItem btnRegisterVendor;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpRegister;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgToolbarRegister;
         private DevExpress.XtraBars.BarStaticItem rbsStatusBarMessage;
@@ -801,17 +1137,17 @@ namespace StudioMoney.Forms
         private DevExpress.XtraEditors.SidePanel pnlLeft;
         private DevExpress.XtraBars.Navigation.AccordionControl accMenu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accRegister;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accBank;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accCategory;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accAccount;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accAccountType;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accAdditionalUser;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accCard;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accCardEnterprise;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accCurrency;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accInterval;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accPaymentType;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accVendor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterBank;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterCategory;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterAccount;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterAccountType;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterAdditionalUser;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterCard;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterCardEnterprise;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterCurrency;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterInterval;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterPaymentType;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accRegisterVendor;
         private DevExpress.XtraBars.Navigation.NavigationFrame nvfPages;
         private DevExpress.XtraBars.Navigation.NavigationPage nvpPrincipal;
         private DevExpress.XtraBars.Navigation.NavigationPage nvpBank;
@@ -838,5 +1174,35 @@ namespace StudioMoney.Forms
         private System.Windows.Forms.TextBox txtCurrentRecord;
         private Infragistics.Win.Misc.UltraButton ubtPrevious;
         private Infragistics.Win.Misc.UltraButton ubtFirst;
+        private DevExpress.XtraEditors.SidePanel spnMainLeft;
+        private DevExpress.XtraEditors.SidePanel spnMainBottom;
+        private System.Windows.Forms.Label lblMainLeft;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblMainBottom;
+        private DevExpress.XtraGrid.GridControl grdAccountBalance;
+        private DevExpress.XtraGrid.GridControl grdUpcomingScheduledPostings;
+        private DevExpress.XtraEditors.SidePanel spnMainRight;
+        private DevExpress.XtraGrid.GridControl grdIncomeExpenses;
+        private DevExpress.XtraGrid.Views.Card.CardView cardView2;
+        private System.Windows.Forms.Label lblMainRight;
+        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accAccounts;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accIncomesExpenses;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accReports;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accScheduled;
+        public Infragistics.Win.UltraWinEditors.UltraTextEditor txtBankDescription;
+        public System.Windows.Forms.Label lblDescription;
+        public Infragistics.Win.UltraWinEditors.UltraTextEditor txtBankCode;
+        public System.Windows.Forms.Label lblCode;
+        private System.Windows.Forms.PictureBox pcbAccountsValue;
+        private System.Windows.Forms.PictureBox pcbGraphic;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accHome;
+        private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
+        private DevExpress.XtraBars.BarButtonItem bbiHome;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory2;
+        private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
     }
 }

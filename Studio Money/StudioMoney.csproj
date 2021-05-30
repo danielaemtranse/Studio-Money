@@ -65,7 +65,9 @@
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -78,6 +80,7 @@
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=8.0.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
       <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.8.0.1\lib\netstandard2.0\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinLiveTileView.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinTree.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v20.2, Version=20.2.20202.30, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
@@ -161,12 +164,6 @@
     <Compile Include="Forms\frmAdditionalUser.Designer.cs">
       <DependentUpon>frmAdditionalUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBank.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmBank.Designer.cs">
-      <DependentUpon>frmBank.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,12 +211,6 @@
     </Compile>
     <Compile Include="Forms\frmVendor.Designer.cs">
       <DependentUpon>frmVendor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmHome.Designer.cs">
-      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLanguage.cs">
       <SubType>Form</SubType>
@@ -269,10 +260,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmAdditionalUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBank.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmBank.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCard.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmCard.cs</DependentUpon>
@@ -303,10 +290,6 @@
     <EmbeddedResource Include="Forms\frmVendor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmVendor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmHome.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLanguage.resx">
       <SubType>Designer</SubType>
@@ -451,6 +434,7 @@
     <Content Include="Images\pag-next.gif" />
     <Content Include="Images\pag-previous.gif" />
     <Content Include="Images\paymenttype.png" />
+    <None Include="Images\payment_history_.png" />
     <Content Include="Images\Portugal.gif" />
     <Content Include="Images\redo.png" />
     <Content Include="Images\redo_.png" />
@@ -471,6 +455,7 @@
     <Content Include="Images\stats32.png" />
     <Content Include="Images\Sweden.gif" />
     <Content Include="Images\tipoconta.ico" />
+    <None Include="Images\today.png" />
     <Content Include="Images\trash.gif" />
     <Content Include="Images\trash_16.png" />
     <Content Include="Images\trash_32.png" />
