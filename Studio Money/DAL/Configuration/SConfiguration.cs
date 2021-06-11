@@ -10,6 +10,5 @@ namespace StudioMoney.DAL.Configuration
             return new ConfigurationSQL();
 
         }
-
     }
 }

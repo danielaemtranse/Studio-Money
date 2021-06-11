@@ -5,7 +5,6 @@ using StudioMoney.BE;
 
 namespace StudioMoney.DAL.Main
 {
-
     public class MainSQL : IMain
     {
         private MainBE objMainBE;
@@ -25,26 +24,19 @@ namespace StudioMoney.DAL.Main
 
         public MainBE ObjMainBE
         {
-
             get
             {
-
                 return objMainBE;
-
             }
 
             set
             {
-
                 objMainBE = value;
-
             }
-
         }
 
         public DataTable fnGetFields()
         {
-
             // Initializate
             cm = new FbCommand();
             dt = new DataTable();
@@ -67,27 +59,19 @@ namespace StudioMoney.DAL.Main
 
             try
             {
-
                 // Execute
                 da = new FbDataAdapter(cm);
                 da.Fill(dt);
                 da.Dispose();
 
                 return dt;
-
             }
 
             finally
             {
-
                 cm.Dispose();
                 dt.Dispose();
-
             }
-
         }
-
-
     }
-
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -8,10 +10,12 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using StudioMoney.Classes;
 using Infragistics.Win.UltraWinEditors;
 using StudioMoney.BE;
 using StudioMoney.BLL;
+using static StudioMoney.BLL.Database;
 
 namespace StudioMoney.Forms
 {
@@ -55,6 +59,8 @@ namespace StudioMoney.Forms
             try
             {
                 InitializeComponent();
+
+                WindowsFormsSettings.DefaultLookAndFeel.SetSkinStyle("Office 2013 White");
 
                 // Set form icon
                 this.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
@@ -208,63 +214,21 @@ namespace StudioMoney.Forms
             clsSounds.fnPlay("Logon");
         }
 
-        public void fnGridPopulate(params object[] args)
+        public void fnGridPopulate(string sCaption)
         {
+            Bank objBusiness = new Bank();
+
             try
             {
-                String sCaption = "";
-                String sParameters = "";
-
-                for (int i = 1; i < args.GetLength(0) + 1; i++)
-                {
-                    if (i == 1)
-                    {
-                        sCaption = (String)args[i - 1];
-                    }
-
-                    else
-                    {
-                        sParameters += (String)args[i - 1];
-                    }
-                }
-
                 switch (sCaption.Substring(3, sCaption.Length - 3))
                 {
-                    case "btnRegisterBank":
-                    case "accRegisterBank":
-                        Database objDatabase = new Database();
-                        oConnection = (Object)objDatabase.oConnection;
+                    case "RegisterBank":
 
-                        // Instantiate BE class
-                        BankBE objBE = new BankBE();
-
-                        // Fill BE class properties
-                        objBE.oConnection = oConnection;
-
-                        if (sParameters != "")
+                        using (var context = new Database.Context())
                         {
-                            objBE.sSearchCommand = sParameters;
+                            dtGrid = CreateDataTable(context.Banks.OrderBy(x => x.sBank).ToList());
                         }
-
-                        // Instantiate Business class
-                        Bank objBusiness = new Bank();
-
-                        // Fill Business class properties
-                        objBusiness.ObjBankBE = objBE;
-
-                        // Fill Grid
-
-                        // Create datatable with same structure of returned datatable by fill grid function
-
-                        if (sParameters == "")
-                        {
-                            dtGrid = objBusiness.fnGetBank();
-                        }
-                        else
-                        {
-                            dtGrid = objBusiness.fnSearchBank();
-                        }
-
+                        
                         fnPaginateGrid(Navigation.First);
 
                         break;
@@ -325,7 +289,7 @@ namespace StudioMoney.Forms
                     nCurrentPage = 1;
                 }
 
-                if (nFirstRecord <= 0 && nFirstRecord <= 1)
+                if (nFirstRecord <= 0)
                 {
                     nFirstRecord = nRecordsOnPage * (nCurrentPage - 1);
                     nLastRecord = nFirstRecord + nRecordsOnPage - 1;
@@ -357,7 +321,7 @@ namespace StudioMoney.Forms
                 }
 
                 txtCurrentRecord.Text = nCurrentPage.ToString().Trim();
-                lblNavigator.Text = clsGeneral.fnGetControlCaption(this, "lblNavigator") + " " + nTotalPages.ToString().Trim();
+                lblNavigator.Text = clsGeneral.fnGetControlCaption(this, "lblNavigator") + @" " + nTotalPages.ToString().Trim();
 
                 DataTable dt = dtGrid.Clone();
 
@@ -378,7 +342,7 @@ namespace StudioMoney.Forms
 
                     switch (sOpenedMenuItem)
                     {
-                        case "CadastreBank":
+                        case "RegisterBank":
                             {
                                 switch (iCol)
                                 {
@@ -735,38 +699,6 @@ namespace StudioMoney.Forms
             clsSounds.fnPlay("Logout");
         }
 
-        private void ubtSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clsSounds.fnPlay("Click");
-
-                switch (sOpenedMenuItem)
-                {
-
-                    case "btnRegisterBank":
-                    case "accRegisterBank":
-                    {
-                        // Instantiate BE class
-                        GlobalBE.sOpenedItem = "utsMainBank";
-                        break;
-                    }
-                }
-
-                // Instantiate and open the form to search
-                frmSearch _frmSearch = new frmSearch(this);
-                _frmSearch.Show();
-            }
-            catch (Exception ex)
-            {
-                // Play defined sound
-                clsSounds.fnPlay("Error");
-
-                // Show exception in a message box
-                clsGeneral.fnException(this, ex);
-            }
-        }
-
         private void lvwGrid_Click(object sender, EventArgs e)
         {
             try
@@ -899,7 +831,6 @@ namespace StudioMoney.Forms
 
             try
             {
-
                 for (int i = 0; i < args.GetLength(0); i++)
                 {
                     if (args[i].GetType().ToString() == "Infragistics.Win.UltraWinEditors.UltraTextEditor")
@@ -937,7 +868,6 @@ namespace StudioMoney.Forms
 
                 foreach (Control oChildControl in oControl.Controls)
                 {
-
                     if (oChildControl.Tag != null)
                     {
                         if (oChildControl.Tag.ToString().ToLower() == "first control") { oChildControl.Focus(); }
@@ -988,5 +918,8 @@ namespace StudioMoney.Forms
             clsSounds.fnPlay("Click");
             fnOpenMenuItem(e.Item.Name);
         }
+
+
+
     }
 }

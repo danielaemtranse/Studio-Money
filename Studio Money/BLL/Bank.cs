@@ -9,6 +9,8 @@ namespace StudioMoney.BLL
     {
 
         private BankBE objBankBE;
+        public int nBank;
+        public string sBank;
 
         public Bank()
         {
@@ -46,19 +48,7 @@ namespace StudioMoney.BLL
             return objData.fnGetBank();
 
         }
-
-        public DataTable fnSearchBank()
-        {
-
-            // Determine what data class will be used according to connection type
-            IBank objData = SBank.GetDataClass(ObjBankBE.oConnection);
-
-            // Fill Business Entity (BE) of data class 
-            objData.ObjBankBE = this.ObjBankBE;
-
-            // Execute data class method
-            return objData.fnSearchBank();
-        }
+        
 
         public Int32 fnDeleteBank()
         {
