@@ -82,6 +82,8 @@ namespace StudioMoney.Forms
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblMainBottom = new System.Windows.Forms.Label();
             this.nvpBank = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.dsStudioMoneyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsStudioMoney = new StudioMoney.dsStudioMoney();
             this.txtBankDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtBankCode = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -151,6 +153,8 @@ namespace StudioMoney.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.nvpBank.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsStudioMoneyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsStudioMoney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankCode)).BeginInit();
             this.pnlBottom.SuspendLayout();
@@ -222,8 +226,8 @@ namespace StudioMoney.Forms
             this.rbcToolbar.PageHeaderItemLinks.Add(this.bbiHome);
             this.rbcToolbar.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpRegister});
-            this.rbcToolbar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
-            this.rbcToolbar.Size = new System.Drawing.Size(1010, 114);
+            this.rbcToolbar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
+            this.rbcToolbar.Size = new System.Drawing.Size(1010, 115);
             this.rbcToolbar.StatusBar = this.rbsStatusBar;
             this.rbcToolbar.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -367,9 +371,9 @@ namespace StudioMoney.Forms
             this.dfcFluentDesignFormContainer.Controls.Add(this.splVertical);
             this.dfcFluentDesignFormContainer.Controls.Add(this.pnlLeft);
             this.dfcFluentDesignFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dfcFluentDesignFormContainer.Location = new System.Drawing.Point(0, 144);
+            this.dfcFluentDesignFormContainer.Location = new System.Drawing.Point(0, 145);
             this.dfcFluentDesignFormContainer.Name = "dfcFluentDesignFormContainer";
-            this.dfcFluentDesignFormContainer.Size = new System.Drawing.Size(1010, 665);
+            this.dfcFluentDesignFormContainer.Size = new System.Drawing.Size(1010, 664);
             this.dfcFluentDesignFormContainer.TabIndex = 77;
             // 
             // nvfPages
@@ -383,7 +387,7 @@ namespace StudioMoney.Forms
             this.nvpPrincipal,
             this.nvpBank});
             this.nvfPages.SelectedPage = this.nvpBank;
-            this.nvfPages.Size = new System.Drawing.Size(833, 665);
+            this.nvfPages.Size = new System.Drawing.Size(833, 664);
             this.nvfPages.TabIndex = 53;
             // 
             // nvpPrincipal
@@ -392,7 +396,7 @@ namespace StudioMoney.Forms
             this.nvpPrincipal.Controls.Add(this.spnMainLeft);
             this.nvpPrincipal.Controls.Add(this.spnMainBottom);
             this.nvpPrincipal.Name = "nvpPrincipal";
-            this.nvpPrincipal.Size = new System.Drawing.Size(833, 665);
+            this.nvpPrincipal.Size = new System.Drawing.Size(833, 664);
             // 
             // spnMainRight
             // 
@@ -402,7 +406,7 @@ namespace StudioMoney.Forms
             this.spnMainRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spnMainRight.Location = new System.Drawing.Point(350, 0);
             this.spnMainRight.Name = "spnMainRight";
-            this.spnMainRight.Size = new System.Drawing.Size(483, 333);
+            this.spnMainRight.Size = new System.Drawing.Size(483, 332);
             this.spnMainRight.TabIndex = 2;
             this.spnMainRight.Resize += new System.EventHandler(this.spnMainRight_Resize);
             // 
@@ -450,7 +454,7 @@ namespace StudioMoney.Forms
             this.spnMainLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.spnMainLeft.Location = new System.Drawing.Point(0, 0);
             this.spnMainLeft.Name = "spnMainLeft";
-            this.spnMainLeft.Size = new System.Drawing.Size(350, 333);
+            this.spnMainLeft.Size = new System.Drawing.Size(350, 332);
             this.spnMainLeft.TabIndex = 1;
             this.spnMainLeft.Resize += new System.EventHandler(this.spnMainLeft_Resize);
             // 
@@ -496,7 +500,7 @@ namespace StudioMoney.Forms
             this.spnMainBottom.Controls.Add(this.pictureBox2);
             this.spnMainBottom.Controls.Add(this.lblMainBottom);
             this.spnMainBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.spnMainBottom.Location = new System.Drawing.Point(0, 333);
+            this.spnMainBottom.Location = new System.Drawing.Point(0, 332);
             this.spnMainBottom.Name = "spnMainBottom";
             this.spnMainBottom.Size = new System.Drawing.Size(833, 332);
             this.spnMainBottom.TabIndex = 0;
@@ -548,7 +552,17 @@ namespace StudioMoney.Forms
             this.nvpBank.Controls.Add(this.pnlBottom);
             this.nvpBank.Controls.Add(this.pnlHeader);
             this.nvpBank.Name = "nvpBank";
-            this.nvpBank.Size = new System.Drawing.Size(833, 665);
+            this.nvpBank.Size = new System.Drawing.Size(833, 664);
+            // 
+            // dsStudioMoneyBindingSource
+            // 
+            this.dsStudioMoneyBindingSource.DataSource = this.dsStudioMoney;
+            this.dsStudioMoneyBindingSource.Position = 0;
+            // 
+            // dsStudioMoney
+            // 
+            this.dsStudioMoney.DataSetName = "dsStudioMoney";
+            this.dsStudioMoney.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtBankDescription
             // 
@@ -599,7 +613,7 @@ namespace StudioMoney.Forms
             // 
             this.splHorizontal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splHorizontal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splHorizontal.Location = new System.Drawing.Point(0, 462);
+            this.splHorizontal.Location = new System.Drawing.Point(0, 461);
             this.splHorizontal.Name = "splHorizontal";
             this.splHorizontal.Size = new System.Drawing.Size(833, 3);
             this.splHorizontal.TabIndex = 74;
@@ -611,7 +625,7 @@ namespace StudioMoney.Forms
             this.pnlBottom.Controls.Add(this.pnlThreeButtons);
             this.pnlBottom.Controls.Add(this.flpNavigation);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 465);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 464);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(833, 200);
             this.pnlBottom.TabIndex = 73;
@@ -884,7 +898,7 @@ namespace StudioMoney.Forms
             this.splVertical.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splVertical.Location = new System.Drawing.Point(174, 0);
             this.splVertical.Name = "splVertical";
-            this.splVertical.Size = new System.Drawing.Size(3, 665);
+            this.splVertical.Size = new System.Drawing.Size(3, 664);
             this.splVertical.TabIndex = 52;
             this.splVertical.TabStop = false;
             // 
@@ -894,7 +908,7 @@ namespace StudioMoney.Forms
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(174, 665);
+            this.pnlLeft.Size = new System.Drawing.Size(174, 664);
             this.pnlLeft.TabIndex = 2;
             this.pnlLeft.Text = "pnlLeft";
             // 
@@ -911,7 +925,7 @@ namespace StudioMoney.Forms
             this.accMenu.Location = new System.Drawing.Point(0, 0);
             this.accMenu.Name = "accMenu";
             this.accMenu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            this.accMenu.Size = new System.Drawing.Size(173, 665);
+            this.accMenu.Size = new System.Drawing.Size(173, 664);
             this.accMenu.TabIndex = 23;
             this.accMenu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.accMenu.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accMenu_ElementClick);
@@ -1063,6 +1077,9 @@ namespace StudioMoney.Forms
             this.FluentDesignFormControl = this.dfcFluentDesignFormControl;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Image = global::StudioMoney.Properties.Resources.money22;
+            this.LookAndFeel.SkinName = "Seven";
+            this.LookAndFeel.TouchUIMode = DevExpress.Utils.DefaultBoolean.False;
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -1091,6 +1108,8 @@ namespace StudioMoney.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.nvpBank.ResumeLayout(false);
             this.nvpBank.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsStudioMoneyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsStudioMoney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankCode)).EndInit();
             this.pnlBottom.ResumeLayout(false);
@@ -1204,5 +1223,7 @@ namespace StudioMoney.Forms
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory2;
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
+        private System.Windows.Forms.BindingSource dsStudioMoneyBindingSource;
+        private dsStudioMoney dsStudioMoney;
     }
 }

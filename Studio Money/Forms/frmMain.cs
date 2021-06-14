@@ -26,7 +26,6 @@ namespace StudioMoney.Forms
         clsStudioMoney clsGeneral = new clsStudioMoney();
         clsSounds clsSounds = new clsSounds();
         private clsListViewColumnSorter lvwColumnSorter;
-        protected Object oConnection;
         public String sOpenedMenuItem = "";
         DataTable dtGrid;
         int nRecordsOnPage;
@@ -59,8 +58,6 @@ namespace StudioMoney.Forms
             try
             {
                 InitializeComponent();
-
-                WindowsFormsSettings.DefaultLookAndFeel.SetSkinStyle("Office 2013 White");
 
                 // Set form icon
                 this.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
@@ -224,7 +221,7 @@ namespace StudioMoney.Forms
                 {
                     case "RegisterBank":
 
-                        using (var context = new Database.Context())
+                        using (var context = new Database())
                         {
                             dtGrid = CreateDataTable(context.Banks.OrderBy(x => x.sBank).ToList());
                         }
@@ -468,68 +465,18 @@ namespace StudioMoney.Forms
                     if (MessageBox.Show(clsGeneral.fnGetControlCaption(this, "msgDelete.Confirm"), clsGeneral.fnGetControlCaption(this, "msgDelete.Header"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        Database objDatabase = new Database();
-                        oConnection = (Object)objDatabase.oConnection;
-
-                        // Instantiate BE class
-                        BankBE objBE = new BankBE();
-
-                        // Fill BE class properties
-                        objBE.oConnection = oConnection;
-                        objBE.nBank = Int32.Parse(lvwGrid.SelectedItems[0].Text);
-
-                        // Instantiate Business class
-                        Bank objBusiness = new Bank();
-
-                        // Fill Business class properties
-                        objBusiness.ObjBankBE = objBE;
+                        //objBE.nBank = Int32.Parse(lvwGrid.SelectedItems[0].Text);
 
                         // Fill Grid
 
                         // Try delete record
                         // If there wasn't an error
-                        if (objBusiness.fnDeleteBank() == 0)
+                        //if (objBusiness.fnDeleteBank() == 0)
                         {
                             // Get selected index on datatable and listview to delete
                             int nSelectedIndex = lvwGrid.SelectedItems[0].Index;
                             int nSelectedRecord = nSelectedIndex + (nRecordsOnPage * (nCurrentPage - 1));
 
-                            // Get DataTable records
-                            DataRowCollection rc = dtGrid.Rows;
-
-                            // Delete record from datatable
-                            rc[nSelectedRecord].Delete();
-                            dtGrid.AcceptChanges();
-
-                            // Remove record from listview
-                            lvwGrid.Items.Remove(lvwGrid.SelectedItems[0]);
-
-                            // If there aren't record on listview
-                            if (lvwGrid.Items.Count == 0)
-                            {
-                                // Return to previous page
-                                fnPaginateGrid(Navigation.Previous);
-                            }
-                            else
-                            {
-                                // Stand on same page
-                                fnPaginateGrid(Navigation.Same);
-                            }
-
-                            // If there are record on listview
-                            if (lvwGrid.Items.Count > 0)
-                            {
-                                // Select next record on listview
-                                lvwGrid.Items[nSelectedIndex - 1].Selected = true;
-                                lvwGrid.Select();
-                                lvwGrid.Focus();
-                                lvwGrid_Click(null, null);
-                            }
-                            else
-                            {
-                                // Clean all fields on screen
-                                ubtNew_Click(null, null);
-                            }
 
                             clsSounds.fnPlay("Deleted");
                         }
@@ -589,27 +536,21 @@ namespace StudioMoney.Forms
                             if (fnValidateEmpty(txtBankCode, txtBankDescription) == true)
                             {
                                 Database objDatabase = new Database();
-                                oConnection = (Object)objDatabase.oConnection;
 
-                                // Instantiate BE class
-                                BankBE objBE = new BankBE();
-
-                                // Fill BE class properties
-                                objBE.oConnection = oConnection;
-                                objBE.nBank = Int32.Parse(txtBankCode.Text);
-                                objBE.sBank = txtBankDescription.Text;
+                                //objBE.nBank = Int32.Parse(txtBankCode.Text);
+                                //objBE.sBank = txtBankDescription.Text;
 
                                 // Instantiate Business class
                                 Bank objBusiness = new Bank();
 
-                                // Fill Business class properties
-                                objBusiness.ObjBankBE = objBE;
 
                                 // Fill Grid
 
                                 // Try delete record
                                 // If there wasn't an error
-                                Int32 nResult = objBusiness.fnSaveBank();
+                                //Int32 nResult = objBusiness.fnSaveBank();
+
+                                Int32 nResult = 0;
 
                                 if (nResult > 1)
                                 {
@@ -621,8 +562,8 @@ namespace StudioMoney.Forms
                                             {
                                                 DataRow dr = dtGrid.NewRow();
 
-                                                dr[0] = objBE.nBank;
-                                                dr[1] = objBE.sBank;
+                                                //dr[0] = objBE.nBank;
+                                                //dr[1] = objBE.sBank;
 
                                                 // Add record to datatable
                                                 dtGrid.Rows.Add(dr);
@@ -646,14 +587,14 @@ namespace StudioMoney.Forms
                                                 DataRow dr = dtGrid.Rows[nSelectedRecord];
 
                                                 // Update datatable
-                                                dr[0] = objBE.nBank;
-                                                dr[1] = objBE.sBank;
+                                                //dr[0] = objBE.nBank;
+                                                //dr[1] = objBE.sBank;
 
                                                 // Update record on datatable
                                                 dtGrid.AcceptChanges();
 
                                                 // Update listview
-                                                lvwGrid.Items[nSelectedIndex].SubItems[1].Text = objBE.sBank;
+                                                //lvwGrid.Items[nSelectedIndex].SubItems[1].Text = objBE.sBank;
 
                                                 // Select updated record
                                                 lvwGrid.Items[nSelectedIndex].Selected = true;
